@@ -31,3 +31,6 @@ bin/
 
 # Application log files
 *.log
+
+# Scraped data directory
+/data/

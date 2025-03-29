@@ -11,6 +11,7 @@ A Go SDK and database for [JewOrNotJew.com](http://jewornotjew.com). This projec
 ## Features
 
 - 🔍 **Complete Scraping**: Extracts all 3,622 profiles with names, verdicts, descriptions, pros, cons, categories, and images
+- 🔄 **Incremental Updates**: Smart scraping that only downloads new or changed profiles
 - 💾 **Persistent Storage**: Saves data in both JSON files and SQLite database
 - 🌈 **Beautiful CLI**: Colorful terminal interface for browsing and searching profiles
 - 🚀 **REST API**: HTTP endpoints for integration with web and mobile apps
@@ -34,7 +35,7 @@ go mod download
 
 ## Scraping Data
 
-First, run the scraper to collect data from JewOrNotJew.com:
+The data directory is not included in the repository to keep it lightweight. You'll need to run the scraper to collect data from JewOrNotJew.com:
 
 ```bash
 go run cmd/scraper/main.go
@@ -59,6 +60,8 @@ By default, the scraper runs in incremental mode, which:
 - Only saves new profiles or updates changed ones
 - Skips profiles that haven't changed
 - Shows detailed statistics about new/updated/skipped profiles
+- Preserves original creation dates when updating profiles
+- Generates timestamped logs to track all scraping operations
 
 This makes it efficient to run the scraper regularly to get newly added profiles without re-downloading everything.
 
@@ -180,7 +183,7 @@ jewornotjew/
 │   ├── api/             # REST API server
 │   ├── cli/             # Command-line interface
 │   └── scraper/         # Web scraper
-├── data/                # Scraped profile data (JSON files)
+├── data/                # Scraped profile data (JSON files, not in repo)
 ├── pkg/                 # Reusable packages
 │   ├── api/             # API server implementation
 │   ├── client/          # Web scraping client
@@ -190,6 +193,8 @@ jewornotjew/
 ├── go.mod               # Go module definition
 └── README.md            # This file
 ```
+
+> **Note**: The `data/` directory is not included in the repository. It will be created when you run the scraper for the first time. This keeps the repository size small and ensures you always have the latest data.
 
 ## License
 
@@ -201,4 +206,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Version History
 
+- **v1.0.1** - Added incremental scraping to avoid re-downloading unchanged profiles
 - **v1.0.0** - Initial release with complete scraping of all 3,622 profiles
