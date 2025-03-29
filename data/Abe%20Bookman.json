@@ -1,0 +1,13 @@
+{
+  "name": "Abe Bookman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1454",
+  "verdict": "Jew",
+  "description": ".\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion:\n\n\n\n\n\n\nb0 = document.getElementById('ball0');\nb1 = document.getElementById('ball1');\na = document.bf.a;\nq = document.bf.q;\nt = document.getElementById('txt');\nasked = false;\nanswers = new Array(\"i'd bet my grandchildren on it\", \"oh, certainly, bubbeleh\", \"as if hashem himself\u003cbr\u003esaid, it\u003cbr\u003ewas so\", \"yes \u0026mdash; now eat something before you waste\u003cbr\u003eaway\", \"you're such a mensch \u0026mdash; of course!\", \"your grandma ida, g-d rest her soul, would\u003cbr\u003esay\u003cbr\u003eyes\", \"as certain as anything in this terrible world\", \"does the rabbi tell bad\u003cbr\u003ejokes?\", \"the outlook is as good as tanta rivka's rugelach\", \"no... oh wait, yes. i got confused\u003cbr\u003efor a\u003cbr\u003emoment\", \"eh, too tired, ask after a shluf\", \"don't give it a kinahora\", \"what am i? a future-predicting billiard\u003cbr\u003eball?\", \"maybe yes, maybe no\", \"what? my hearing's not so good anymore\", \"i wouldn't count on it, boytchik\", \"\u003cbr\u003enah\", \"\u003cbr\u003efeh\", \"oy, not so good\", \"are you meshuggenah\u003cbr\u003e?!\");\nnum = answers.length;\nq.disabled = false;\norig = true;\nfunction ask() {\n v = q.value;\n if (v == '' || v.charAt(v.length-1) != '?') {\n   alert('Please enter your question');\n   return false;\n }\n asked = !asked;\n if (asked) {\n  a.value = 'Reset';\n  ball0.style.display = 'none';\n  ball1.style.display = 'inline';\n  q.disabled = true;\n  r = parseInt(Math.random()*num);\n  if (orig) r = parseInt(Math.random()*10);\n  f = parseInt(v);\n  if (f \u003e= 1 \u0026\u0026 f \u003c= num) r = f-1;\n  if (f == -1) r = num-1;\n  w = answers[r];\n  if (w.length \u003c 10) t.style.fontSize = '18px';\n  else if (w.length \u003e 25) t.style.fontSize = '12px';\n  else t.style.fontSize = '14px';\n  t.innerHTML = w;\n } else {\n  a.value = 'Ask!';\n  ball1.style.display = 'none';\n  ball0.style.display = 'inline';\n  q.disabled = false;\n }\n}\nfunction noOrig() {\n  orig = false;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1454,
+  "category": "Religion",
+  "image_url": "http://jewornotjew.com/img/people/a/abe_bookman.jpg",
+  "created_at": "2025-03-29T13:16:59+02:00",
+  "updated_at": "2025-03-29T13:16:59+02:00"
+}

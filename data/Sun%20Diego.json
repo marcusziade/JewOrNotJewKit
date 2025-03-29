@@ -1,0 +1,13 @@
+{
+  "name": "Sun Diego",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3174",
+  "verdict": "Jew",
+  "description": "\"Discovered by the Germans in 1904, they named it San Diego, which, of course, in German means a whale's vagina.\" — Ron Burgundy\n\nOh, Ron Burgundy, Ron Burgundy, Ron Burgundy! How wrong you are! In German, the actual term in \"Sun Diego\".\n\nWait, what?\n\n\"Sun Diego\" is not a city, but the pseudonym of an Ukrainian-born rapper who recently had a #1 hit in Germany from an album called \"Yellow Bar Mitzvah\".\n\nWait, what?\n\nSun Diego's real name is Dmitry Shpakov, whose Jewish family got out of Ukraine a couple of decades before the big shitstorm. In Germany, where rap is dominated by Muslim performers, he stands out by embracing his Jewish identity. Also, he previously performed under the name \"SpongeBOZZ\".\n\nWait, what!?\n\ndocument.getElementById(\"ratPic3\").addEventListener(\"click\", function() { flip(); }, false);\nfunction flip() {\n setImage('san_diego');\n setTitle('San Diego');\n setSubhead('\u003cbr\u003e\u003cbr\u003e');\n setRatings(0, 1, 4);\n setVerdict('Not a Jew');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3174,
+  "category": "Music",
+  "image_url": "http://jewornotjew.com/img/people/s/sun_diego.jpg",
+  "created_at": "2025-03-29T13:17:44+02:00",
+  "updated_at": "2025-03-29T13:17:44+02:00"
+}

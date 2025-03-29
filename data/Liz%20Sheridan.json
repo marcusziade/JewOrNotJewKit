@@ -1,0 +1,13 @@
+{
+  "name": "Liz Sheridan",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1732",
+  "verdict": "Barely a Jew",
+  "description": "New York City, late 40s/early 50s. A dancer named Liz meets an actor names James. The two fall in love. Dizzy and Jimmy, they call each other.\n\nThe love is short-lived. Jimmy soon moves on... he is James Dean. You know the story. He shines brightly for a short time, but it doesn't end well.\n\nDizzy? She continues dancing, goes into acting... Nothing major comes up, unless you count a role as ALF's neighbor (you shouldn't count that). Until the 90s, that is, when the goyishe Dizzy — make that Liz Sheridan — becomes the JEWIEST MOTHER IN THE HISTORY of television. Jerry Seinfeld's mother. Yep, this is her.\n\nAnd ever since the end of that show? Not much on Sheridan's plate. You'd think she might get typecast as a Jewish mother, and yet... nothing. (Perhaps if she was more than a quarter Jewish in real life?)\n\nWell, she'll always have that memory of Jimmy...\n\nsetImage('sheridan');\nfunction loadPic() {\nswapPic('sheridan','l/liz_sheridan');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1732,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/l/liz_sheridan.jpg",
+  "created_at": "2025-03-29T13:17:06+02:00",
+  "updated_at": "2025-03-29T13:17:06+02:00"
+}

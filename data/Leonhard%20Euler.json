@@ -1,0 +1,13 @@
+{
+  "name": "Leonhard Euler",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2725",
+  "verdict": "Sadly, Not a Jew.",
+  "description": "If you are ever in Kaliningrad, Russia (you have no reason to go to Kaliningrad, but indulge us), you might be inclined to traverse a very famous mathematical problem: the Seven Bridges of Konigsberg (Konigsberg being Kaliningrad's name under the Prussian rule).\n\nA river ran through Konigsberg that separated it into two parts. There were two islands on the river, and seven bridges connected various land masses. Was it possible to make a path that traverses all the bridges just once each? Many spent years trying to crack the puzzle.\n\n [X]\n\n\nEnter Leonhard Euler. The Swiss mathematician proved that such a trip was impossible: each of the four land masses was touched by an odd number of bridges. To enter and exit, an even number is required. This means that there can exist a maximum of two land masses with odd number of bridges: the start and end points. (We bored you already, right?) That might seem obvious to the modern mind, but wasn't so in the 18th century. In fact, Euler's solution to the problem laid down the foundation to the concept of graph theory.\n\nHowever, if you visit Kaliningrad today (again, you have no reason to visit Kaliningrad today), you will find a solution to the problem: two of the seven bridges have been eliminated, which makes a modern-day traversing possible. Happy walking!",
+  "pros": null,
+  "cons": null,
+  "score": 2725,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/l/leonhard_euler.jpg",
+  "created_at": "2025-03-29T13:17:32+02:00",
+  "updated_at": "2025-03-29T13:17:32+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Crocodile Gena",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3573",
+  "verdict": "Borderline Jew.",
+  "description": "Rejoice, Russians! Take your mind off your evil conquest of Ukraine and allow us to inform you that yet another one of your beloved children's characters is a hidden Jew! If that doesn't get the blood boiling, we don't know what does...\n\nFor those not familiar with anthropomorphic Soviet reptiles, let us explain the phenomenon that is Crocodile Gena. In his day job, he works in the Moscow Zoo as... a crocodile. But when the workday is over, he puts on his hat and jacket (pants?), goes home, plays his accordion, and broods. You see, poor Gena has no friends.\n\n\nDon't worry, Soviet youth! Gena meets a strange creature who arrived form distant lands. It is not a bear, it is not a monkey, it is simply Cheburashka (don't even try to pronounce that, non-Russian speakers). The two become fast friends and build socialism together. The details are, like Cheburashka itself, pretty fuzzy.\n\nThis is where it gets Jewy: Gena's goyishe creator, Eduard Uspensky, based the crocodile on Yan Frenkel, a composer and songwriter. Perhaps Frenkel's rather Jewish schnoz was the inspiration for the crocodile's long muzzle?\n\nAnd speaking of things that irritate Russians, Chebruashka, for all its mysteries, is... non-binary. You've been fed LGBTQ propaganda all along, Russians!\n\nc = document.getElementById(\"pic\");\nfunction showPic(b) {\n showDiv(c);\n p = b ? 'cheburashka' : 'frenkel';\n c.src = 'img/other/'+p+'.jpg';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3573,
+  "category": "Literature",
+  "image_url": "http://jewornotjew.com/img/people/c/crocodile_gena.jpg",
+  "created_at": "2025-03-29T13:17:54+02:00",
+  "updated_at": "2025-03-29T13:17:54+02:00"
+}

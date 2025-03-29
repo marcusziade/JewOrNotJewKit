@@ -1,0 +1,13 @@
+{
+  "name": "Stuart Beck",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1933",
+  "verdict": "Jew",
+  "description": ".zm:hover {text-decoration: none;}\n\n\n\n\n\n\n+\n\n\n\n\n\nToday, we're gonna have a little geography lesson. Can you find the country of Palau on this map?\n\n\nt = document.getElementById(\"txt\");\np = document.getElementById(\"palau\");\nz1 = document.getElementById(\"zm1\");\nc = 1;\ns = new Array(\"Today, we're gonna have a little geography lesson. Can you find the country of Palau on this map?\", \"You know, Palau? One of the world's newest countries... and, yes, one of its smallest!\", \"Can you see it? There it is! No, right there!\", \"Thanks, Google Maps. It's now hiding behind the label. Palau! 177 square miles, population 20,000.\", \"Jews? Not too many Jews. Although Palau did have a Jewish Supreme Court justice... Yes, Palau actually has a Supreme Court! Those fishing disputes don't resolve themselves!\", \"And here we have Stuart Beck, a Jewish lawyer who helped Palau become an independent nation in 1994. He even represented the country in the United Nations!\", \"So, perhaps you learned something about Palau today. Just please don't ask us to find any Jews in Nauru or Tuvalu...\");\nfunction zoom(x) {\n c += x;\n if (c \u003e= 7) { c = 7; z1.style.color = \"gray\"; }\n p.src = 'img/other/sb/palau'+c+'.jpg';\n t.innerHTML = s[c-1];\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1933,
+  "category": "Art",
+  "image_url": "http://jewornotjew.com/img/people/s/stuart_beck.jpg",
+  "created_at": "2025-03-29T13:17:12+02:00",
+  "updated_at": "2025-03-29T13:17:12+02:00"
+}

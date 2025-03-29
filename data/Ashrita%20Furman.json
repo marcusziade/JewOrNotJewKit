@@ -1,0 +1,13 @@
+{
+  "name": "Ashrita Furman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1912",
+  "verdict": "Borderline Jew.",
+  "description": "Who is this man and why is he holding a milk bottle on his head? Well, that's Ashrita Furman, and he holds the world record for balancing a milk bottle on his head.\n\nBut that's not the only record Furman holds. At some point, he has held world records for... underwater cycling, bouncing on a kangaroo ball, catching grapes in the mouth, apple bobbing, sack racing (yes, you're not mistaken, that's a yak's behind), upside-down juggling, knee bends on a balance board (under an elephant?), and piggyback carrying. As of this writing, that's 551 records overall, including the record for... most world records.\n\nSo what set Furman on this life-long journey? \"I had a Jewish upbringing, and my dad was a lawyer,\" Furman said. \"I was looking at a similar future. I felt empty inside.\" So he became a follower of spiritual master Sri Chinmoy, changed his name from Keith to Ashrita, and, set on a path of self-discovery... and record-breaking.\n\nFeeling empty because of one's Jewish upbringing... Now where is that milk bottle?\n\n\nfunction loadPic(x) {\n if (x == 0) setImage('a/ashrita_furman');\n else setImage('af/af'+x);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1912,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/a/ashrita_furman.jpg",
+  "created_at": "2025-03-29T13:17:11+02:00",
+  "updated_at": "2025-03-29T13:17:11+02:00"
+}

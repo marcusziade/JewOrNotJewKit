@@ -1,0 +1,15 @@
+{
+  "name": "Jascha Heifetz",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2031",
+  "verdict": "Jew",
+  "description": "p = 1;\nj = document.getElementById(\"jh\");\nt = document.getElementById(\"jt\");\nb1 = document.getElementById(\"bb1\");\nb2 = document.getElementById(\"bb2\");\nb1.disabled = true;\nb2.disabled = false;\nm = 7;\nts = new Array(\n\"Jascha Heifetz was given his first violin before he was three years old. He started to give concerts not long after.\",\n\"When he was ten, Heifetz played in front of 25,000 in Saint Petersburg. Police had to protect him from the adoring crowd.\",\n\"In 1917, the Heifetz family moved from Russia in America. In retrospect, it was a good idea.\",\n\"During World War II, Heifetz spent a lot of time overseas, performing for the troops.\",\n\"His performances in Israel were subject to controversy when he refused to remove Richard Strauss from his program.\",\n\"In 1972, Heifetz stopped giving concerts, saying that he has been performing for too long. He became a professor at USC.\",\n\"Many consider Heifetz the greatest violinist of all time. Who are we to argue?\");\nshowText(1);\nfunction go(x) {\n  p += x;\n  d1 = false; d2 = false;\n  if (p \u003c= 1) {p = 1; d1 = true; }\n  if (p \u003e= m) {p = m; d2 = true; }\n  b1.disabled = d1;\n  b2.disabled = d2;\n  showText(p);\n  j.src = \"img/other/jhe/jh\"+p+\".jpg\";\n}\nfunction showText(x) {\n  t.innerHTML = ts[x-1];\n}",
+  "pros": null,
+  "cons": [
+    "ider Heifetz the greatest violinist of all time. Who are we to argue?\");\nshowText(1);\nfunction go(x) {\n  p += x;\n  d1 = false; d2 = false;\n  if (p \u003c= 1) {p = 1; d1 = true; }\n  if (p \u003e= m) {p = m; d2 = true; }\n  b1.disabled = d1;\n  b2.disabled = d2;\n  showText(p);\n  j.src = \"img/other/jhe/jh\"+p+\".jpg\";\n}\nfunction showText(x) {\n  t.innerHTML = ts[x"
+  ],
+  "score": 2031,
+  "category": "Academia",
+  "image_url": "http://jewornotjew.com/img/people/j/jascha_heifetz.jpg",
+  "created_at": "2025-03-29T13:17:14+02:00",
+  "updated_at": "2025-03-29T13:17:14+02:00"
+}

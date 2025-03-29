@@ -1,0 +1,13 @@
+{
+  "name": "Enrique Garcia",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1318",
+  "verdict": "Not a Jew",
+  "description": "Many Spanish soccer players, much like their Brazilian counterparts, use but a single name to distinguish themselves. For example, Xavier Hernandez, the talismanic midfielder for Barcelona, is known simply as \"Xavi\".\n\nEnrique Garcia Martinez is not exactly the same stature as Raul. In fact, he toils for lowly Real Murcia in Spain's second division. But he is not a nobody either: he played for his country in the World Youth Cup, scoring against (of all teams!) Tahiti. And he is known as, well...\n\nYep. Kike. Doesn't seem right, does it? Of course, the word, pronounced kee-kay, is just a nickname for Enrique, and doesn't have any overtones in Spanish. But still. It's there. Kike.\n\nEven on the back of his uniform... Kike. Can you imagine buying that jersey?\n\nfunction loadName() {\n setTitleOnly('Kike');\n s1.innerHTML = 'well... \"Kike\".';\n s2.style.display = 'inline';\n s3.style.display = 'inline';\n s4.style.display = 'inline';\n}\nfunction loadPic() {\nswapPic('e/enrique_garcia', 'kike');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1318,
+  "category": "Sports",
+  "image_url": "http://jewornotjew.com/img/people/e/enrique_garcia.jpg",
+  "created_at": "2025-03-29T13:16:56+02:00",
+  "updated_at": "2025-03-29T13:16:56+02:00"
+}

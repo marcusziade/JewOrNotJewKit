@@ -1,0 +1,13 @@
+{
+  "name": "Baskin-Robbins",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2500",
+  "verdict": "Borderline Jew.",
+  "description": "#circle { width: 50px; height: 50px; background: #c0c0c0; -moz-border-radius: 25px; -webkit-border-radius: 25px; border-radius: 25px; text-align: center;}\n\nWhat better way to celebrate our 2500th profile than with some delicious ice cream? Did you know that both Burt Baskin and Irv Robbins were Jewish? So step right up to our parlor and pick any three of our wonderful 31 flavors! You won't be disappointed!\n\n\n\n\n1\n2\n3\n4\n5\n\n\n6\n7\n8\n9\n10\n\n\n11\n12\n13\n14\n15\n\n\n16\n17\n18\n19\n20\n\n\n21\n22\n23\n24\n25\n\n\n\n\n26\n27\n28\n29\n30\n31\n\n\n\n\n\n\nvar f = new Array('Dried Apricots', 'Buttered Matzah', 'Creamy Schmaltz', 'Noodle Kugel', 'Atlantic Lox', 'Hot Borscht', 'Honey Challah', 'Celery Root', 'Hanukkah Gelt', 'Hard-Boiled Egg', 'Crispy Latkes', 'Buckwheat Kasha', 'Coconut Macaroon', 'Hearty Chickpeas', 'Marble Rye', 'Salted Parsley', 'Chopped Liver', 'Pickled Herring', 'Pistachio Halvah', 'Sorrel Soup', 'Hebrew National Hot Dog', 'Smoked Whitefish', 'Deep-Fried Falafel', 'Everything Bagel', 'Cherry Blintz', 'Shredded Horseradish', 'Matzo Ball', 'Tahini Hummus', 'Gefilte Fish', 'Fig Rugelach', 'Cured Pastrami');\nlastX = 0;\nvar t = document.getElementById(\"txt\");\nsel = new Array(3);\nuse = new Array(3);\ncounter = 0;\nfunction restart() {\n  counter = 0;\n  t.innerHTML = \"\";\n  for (i=0;i\u003c3;i++) clear(use[i], sel[i]);\n}\nfunction clear(u, v) {\n  u.style.backgroundImage = \"none\";\n  u.style.backgroundColor = \"#c0c0c0\";\n  u.innerHTML = v;\n  lastX = 0;\n}\nfunction show(x, d) {\n  if (counter == 3) {\n    restart();\n  }\n  if (x == lastX) return;\n  if (x \u003e f.length) return;\n  d.style.backgroundImage = \"url('img/other/br/pic\"+x+\".jpg')\";\n  d.innerHTML = \" \";\n  sel[counter] = x;\n  use[counter] = d;\n  counter++;\n  if (counter == 3) {\n    t.innerHTML = f[sel[0]-1] + \", \" + f[sel[1]-1] + \", \" + f[sel[2]-1] + \". Enjoy!\";\n  }\n  lastX = x;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2500,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/b/baskin-robbins.jpg",
+  "created_at": "2025-03-29T13:17:26+02:00",
+  "updated_at": "2025-03-29T13:17:26+02:00"
+}

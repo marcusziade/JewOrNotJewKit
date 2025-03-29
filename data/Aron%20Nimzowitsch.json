@@ -1,0 +1,13 @@
+{
+  "name": "Aron Nimzowitsch",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2723",
+  "verdict": "Jew",
+  "description": "At the turn of the 20th century, the world of chess was hit by a schism. (Yes, we're talking about a chess argument. This is gonna be one exciting profile!)\n\nOn one side there was Siegbert Tarrasch, who led the classical school. Tarrasch believed that the center of the board should be controlled by pawns. Aron Nimzowitsch, on the other hand, led the hypermodern school. He thought the center doesn't need to be controlled by pawns. (Oh, now this is getting real!)\n\nThey hated each other's guts.\n\nTarrasch called Nimzowitsch \"bizarre\" and \"unaesthetic\". Nimzowitsch called Tarrasch \"mediocre\" and \"dogmatic\". (These are fighting words!) The two spent much of their lives antagonizing each other, trying to prove the other one wrong.\n\nWho won? At the end, both can be called founding fathers of modern chess theory, but Nimzowitsch is the one usually considered the greater contributor. On the other hand, Tarrasch is the only one who competed for the world title, losing to Emanuel Lasker in 1910.\n\nIn our eyes, Nimzowitsch is the clear winner. First of all, he had a winning record against Tarrasch. More importantly, he spent his life as a Jew, while his enemy converted out...\n\naron = true;\nfunction loadPic(b) {\nif (b) {\n remember();\n} else {\n memorize();\n setImage('siegbert_tarrasch');\n setTitle('Siegbert Tarrasch');\n setRatings(4, 2, 3);\n setVerdict('Barely a Jew');\n setSubhead('March 5, 1862 - February 17, 1934');\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2723,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/a/aron_nimzowitsch.jpg",
+  "created_at": "2025-03-29T13:17:32+02:00",
+  "updated_at": "2025-03-29T13:17:32+02:00"
+}

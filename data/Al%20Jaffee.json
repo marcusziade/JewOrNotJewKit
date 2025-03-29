@@ -1,0 +1,13 @@
+{
+  "name": "Al Jaffee",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3311",
+  "verdict": "Jew",
+  "description": "(try folding the above)\n\n\n\n\n\n.jaffee {\n  position: relative;\n  display: inline-flex;\n  transform: rotateX(10deg);\n  transform-style: preserve-3d;\n  cursor: grab;\n}\n\n.jaffee img {\n  width: 360px;\n  height: 110px;\n  max-width: 100%;\n  max-height: 56vh;\n  opacity: 0;\n}\n\n.jaffee .a,\n.jaffee .b,\n.jaffee .c {\n  top: 0;\n  display: inline-block;\n  height: 100%;\n  background-image: url('img/other/jaffee.gif');\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n\n.jaffee .a {\n  position: absolute;\n  left: 0;\n  width: 50%;\n  background-position: 0 0;\n}\n\n.jaffee .bc {\n  position: absolute;\n  display: inline-flex;\n  width: 50%;\n  height: 100%;\n  left: 50%;\n  transform-origin: left;\n  transition: transform 3s;\n  transform-style: preserve-3d;\n}\n\n.jaffee .b,\n.jaffee .c {\n  position: relative;\n  width: 50%;\n  backface-visibility: hidden;\n}\n\n.jaffee .b {\n  background-position: 66.666667% 0;\n  transform-style: preserve-3d;\n}\n\n.jaffee .b:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #000;\n  transform: rotateY(180deg) translateZ(1px);\n  transform-style: preserve-3d;\n  backface-visibility: hidden;\n}\n\n.jaffee .c {\n  background-position: 100% 0;\n  transform-origin: left;\n  transition: transform 2s;\n}\n\n.jaffee:hover .bc,\n.jaffee:active .bc {\n  transform: rotateY(-180deg) translateZ(-1px);\n  transition: transform 2s;\n}\n\n.jaffee:hover .c,\n.jaffee:active .c {\n  transform: rotateY(180deg) translateZ(2px);\n  transition: transform 3s;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3311,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/a/al_jaffee.jpg",
+  "created_at": "2025-03-29T13:17:47+02:00",
+  "updated_at": "2025-03-29T13:17:47+02:00"
+}

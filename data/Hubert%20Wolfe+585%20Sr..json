@@ -1,0 +1,13 @@
+{
+  "name": "Hubert Wolfe+585 Sr.",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2860",
+  "verdict": "Jew",
+  "description": "Well, this is strange. What kind of a name is \"Wolfe+585\"? Trust us, it gets curiouser and curiouser.\n\nThe man pictured, a German-born Philadelphian typesetter, SHORTENED his last name to \"Wolfe+585\". Previously, he was known as...\n\nWe're not done yet. You see how we wrote \"known as\"? That was also a shortened version. His full name was...\n\nFor years, Hubert (let's keep it short) was listed in the Guinness Book of World Records for the longest last name in existence. So how did he get it? Apparently, it was made up by his great-grandfather, who, like other Jews in 19th century Germany, was forced to choose a surname.\n\nSo now that the last name mystery is solved, we are left with one question:\n\nWith 26 alphabetical first names, how did he settle on Hubert?\n\nfunction flip(x, d) {\nif (x == 1) { s = 'Hubert Blaine Wolfeschlegelsteinhausenbergerdorff Sr.'; q = 'known as ';\n} else if (x == 2) {\ns = 'Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus Wolfeschlegel-steinhausen-bergerdorff-welche-vor-altern-waren-gewissenhaft-schafers-wessen-schafe-waren-wohl-gepflege-und-sorgfaltigkeit-beschutzen-vor-angreifen-durch-ihr-raubgierig-feinde-welche-vor-altern-zwolfhundert-tausend-jahres-voran-die-erscheinen-von-der-erste-erdemensch-der-raumschiff-genacht-mit-tungstein-und-sieben-iridium-elektrisch-motors-gebrauch-licht-als-sein-ursprung-von-kraft-gestart-sein-lange-fahrt-hinzwischen-sternartig-raum-auf-der-suchen-nachbarschaft-der-stern-welche-gehabt-bewohnbar-planeten-kreise-drehen-sich-und-wohin-der-neue-rasse-von-verstandig-menschlichkeit-konnte-fortpflanzen-und-sich-erfreuen-an-lebenslanglich-freude-und-ruhe-mit-nicht-ein-furcht-vor-angreifen-vor-anderer-intelligent-geschopfs-von-hinzwischen-sternartig-raum Sr.'\ns = s.replace(/-/g, String.fromCharCode(8203));\nq = 'full name was ';\n}\nsetTitleOnly(s);\nt = document.getElementById(d);\nt.innerHTML = q + s;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2860,
+  "category": "Literature",
+  "image_url": "http://jewornotjew.com/img/people/h/hubert_wolfe+585_sr_.jpg",
+  "created_at": "2025-03-29T13:17:35+02:00",
+  "updated_at": "2025-03-29T13:17:35+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Harrison Bader",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3334",
+  "verdict": "Borderline Jew.",
+  "description": "Center field for the New York Yankees is one of most iconic positions in all of sports. Here, we ranked the greats for you:\n\n\n1. Mickey Mantle\n2. Joe DiMaggio\n3. Rickey Henderson\n4. Bernie Williams\n5. Bobby Murcer\n...\n96. Harrison Bader\n...\n\n\nDiMaggio and Mantle, Mantle and DiMaggio, how do you even pick?\n\nSo, what about Bader, who currently plays the position? Well, just look at the list of the greatest Yankee ethnically Jewish center fielders of all time.\n\n\n1. Harrison Bader\n\n\nThat is all.\n\nq = parseInt(Math.random()*2);\nif (q == 1) {\n  document.getElementById(\"q1\").innerHTML = 'Joe DiMaggio';\n  document.getElementById(\"q2\").innerHTML = 'Mickey Mantle';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3334,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/h/harrison_bader.jpg",
+  "created_at": "2025-03-29T13:17:48+02:00",
+  "updated_at": "2025-03-29T13:17:48+02:00"
+}

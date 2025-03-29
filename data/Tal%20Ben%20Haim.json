@@ -1,0 +1,13 @@
+{
+  "name": "Tal Ben Haim",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2163",
+  "verdict": "Jew",
+  "description": "Let's say you have a fairly common name... Chris. (You are obviously goyishe in this example.) You come to a workplace, and there is already a Chris there. Not a problem! He stays Chris, and you become \"Chris J\", J being the first letter of your last name, of course.\n\nBut let's say the other Chris' last name also begins with J. Not a problem! To avoid confusion, you're now \"Chris Jones\".\n\nBut let's say the other Chris' last name is also Jones! Now there is dilemma, and your co-workers have to resolve to some physical characteristics. Perhaps you're now \"Tall Chris\" or \"Bald Chris\" or \"Vestigial Tail Chris\". Hopefully not the last two.\n\nUnlikely to happen, you say? Au contraire! Take the Israeli national team, which features two players named Tal Ben Haim. Here's one, and here's the other. What makes it even more confusing is that recently they became club teammates as well, on Maccabi Tel Aviv. (And, yes, they are both bald, too.)\n\nSo how do Israelis avoid the confusion? Well, the older one is \"Ben Haim I\", and the younger is \"Ben Haim II\". Or, thanks to the ambiguity of transliteration, the older is \"Tal Ben Haim\", and the younger is \"Tal Ben Chaim\".\n\nBetter than being named \"Chris Jones\", we give you that.\n\nson = false;\nfunction loadPic(ii) {\nmemorize();\nif (ii) {\n setImage('tal_ben_chaim');\n setSubhead('August 5, 1989 \u0026mdash;');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2163,
+  "category": "Sports",
+  "image_url": "http://jewornotjew.com/img/people/t/tal_ben_haim.jpg",
+  "created_at": "2025-03-29T13:17:18+02:00",
+  "updated_at": "2025-03-29T13:17:18+02:00"
+}

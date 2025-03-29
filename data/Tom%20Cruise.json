@@ -1,0 +1,13 @@
+{
+  "name": "Tom Cruise",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1440",
+  "verdict": "Not a Jew",
+  "description": "Of course, Tom Cruise isn't Jewish. In fact, here's a bunch of stuff that is MORE Jewish than Tom!\n\n\n\n\nText here\n\n\n\n\nnames = new Array(\"Pope Benedict XVI\", \"Hitler Cat\", \"A jar of pickles\", \"This dog\", \"A chunk of cheese\", \"An ostrich\", \"A cactus\", \"A refrigerator\", \"Mr. Miyagi\", \"Harvey the Invisible Rabbit\", \"Batman\", \"Marie Antoinette\", \"Captain Caveman\", \"Confucius\", \"Sasquatch\", \"Manute Bol\", \"Sean Connery\", \"A circus bear\", \"The Little Mermaid\", \"Tom Brady\",\n\n\"Loch Ness Monster\", \"Nicole Kidman\", \"Santa Claus\", \"ALF\", \"Marilyn Manson\", \"Pamela Anderson\", \"Fidel Castro\", \"Count Chocula\", \"Mister Ed\", \"Charlie Sheen\");\nnum = names.length;\nused = new Array(num);\nprofs = 10;\ntxt = document.getElementById(\"who\");\nimg = document.getElementById(\"port\");\ntot = 0;\nmore(num-1);\nfunction more(v) {\n k = parseInt(Math.random()*num);\n if (v != null) k = v;\n while (used[k]) {\n  k++;\n  if (k == num) k = 0;\n }\n used[k] = true;\n tot = tot + 1;\n pic = 'img/other/tc/pic'+(k+1)+'.jpg';\n nam = names[k];\n if (k \u003e= num - profs) {\n  n = nam.replace('.', '_').toLowerCase();\n  n = n.replace(/ /g,'_')\n  pic = 'img/people/'+n.charAt(0)+'/'+n+'.jpg';\n }\n img.src = pic;\n txt.innerHTML = nam;\n if (tot \u003e= num) {\n  for (i=0;i\u003cnum;i++) used[i] = false;\n  tot = 0;\n }\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1440,
+  "category": "Religion",
+  "image_url": "http://jewornotjew.com/img/people/t/tom_cruise.jpg",
+  "created_at": "2025-03-29T13:16:59+02:00",
+  "updated_at": "2025-03-29T13:16:59+02:00"
+}

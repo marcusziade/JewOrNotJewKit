@@ -1,0 +1,13 @@
+{
+  "name": "Steve Mnuchin",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2518",
+  "verdict": "Sadly, a Jew.",
+  "description": "var badMsg = new Array(\"I didn't marry you for your looks!\", \"You want me to look like a peasant?\", \"Come on, shmendrik, open that wallet!\", \"I grew up in a castle, not on a farm!\");\nvar goodMsg = new Array(\"That's why I married you, my shmendrik!\", \"Ivanka's got NOTHING on me!\", \"Thanks, but I'm gonna need a second outfit!\", \"I guess it'll have to do...\");\nvar wantMsg = new Array(\"I need more stuff!\", \"I want more stuff!\", \"Gimme more stuff!\");\nvar budget = 3000, total = 0, rows = 4, maxCost = 3775;\nvar cost = new Array(rows);\nvar oldBut = new Array(rows);\n\nfunction randomEl(a) {\n  return randomElement(a);\n}\n\nfunction buy(tb, r, p) {\n  tb.disabled = true;\n  if (oldBut[r] != null) oldBut[r].disabled = false;\n  oldBut[r] = tb;\n  oldCost = cost[r];\n  if (isNaN(oldCost)) oldCost = 0;\n  total -= oldCost;\n  cost[r] = p;\n  total += p;\n  writeTotal();\n  t = (total \u003c budget) ? \"Checkout\": \"Over Budget!\";\n  document.getElementById(\"checkoutBut\").value = t;\n}\n\nfunction checkout() {\n  t = randomEl(wantMsg);\n  da = document.getElementById(\"answerText\");\n  da.style.color = \"black\";\n  if (hasAll()) {\n    if (total \u003c maxCost) {\n      t = randomEl(badMsg) + \"\u0026#128078;\";\n    } else {\n      t = randomEl(goodMsg) + \"\u0026#128077;\";\n      da.style.color = \"magenta\";\n    }\n  }\n  da.innerHTML = t;\n}\n\nfunction writeTotal() {\n  document.getElementById(\"budgetText\").innerHTML = \"$\"+(budget-total);\n  document.getElementById(\"totalText\").innerHTML = \"$\"+total;\n}\n\nfunction hasAll() {\n  for (i=0;i\u003crows;i++) {\n    if (isNaN(cost[i]) || cost[i] == 0) return false;\n  }\n  return true;\n}\n\n\n\n\n\nHelp Secretary of the Treasury Steve Mnuchin buy an outfit for his wife, Louise Linton!\n\n\n\n\nBudget:\n\n\nSpent:\n\n\n\n\n\n\n\n\n\n\n\n\n\n$173\n$180\n$445\n\n\n\n\n\n\n\n$139\n$395\n$940\n\n\n\n\n\n\n\n$750\n$1020\n$1395\n\n\n\n\n\n\n\n$750\n$890\n$995\n\n\n\n\n\n\n\n\n\n\nwriteTotal();",
+  "pros": null,
+  "cons": null,
+  "score": 2518,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/s/steve_mnuchin.jpg",
+  "created_at": "2025-03-29T13:17:27+02:00",
+  "updated_at": "2025-03-29T13:17:27+02:00"
+}

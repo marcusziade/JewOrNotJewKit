@@ -1,0 +1,13 @@
+{
+  "name": "The Bluths",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1541",
+  "verdict": "Borderline Jew.",
+  "description": "In our profile of Dr. Katz, Professional Therapist, we lamented the lack of Jewish sitcom families. We've made a huge mistake.\n\nHow could we forget the Bluths of \"Arrested Development\"! And we're not just talking about George Sr.'s discovery of Judaism in jail. The Bluths were specifically designed to be Jewish (well, half Jewish) by the series creator, Mitchell Hurwitz (Jew himself, of course). Let him explain:\n\nThe name Bluth... my wife was the one saying we've got to find a name that's Jewish but not too Jewish, 'cause you want to have that freedom comedically.\n\nOf course, with all the strange relationships in that family, not everyone is exactly a Jew. So let's go through each Bluth and figure out how Jewish they are!\n\n\n\n\n\nAnd, yes, we know there is an episode where George Sr. finds Christianity. Talk about huge mistakes...\n\nnum = 9;\ncur = 0;\nnam = new Array(\"George Bluth\", \"Lucille Bluth\", \"Gob Bluth\", \"Michael Bluth\", \"Lindsay F\ufffdnke\", \"Buster Bluth\", \"George Michael Bluth\", \"Dr. Tobias F\ufffdnke\", \"Maeby F\ufffdnke\");\nver = new Array(\"Jew\", \"Not a Jew\", \"Borderline Jew\", \"Borderline Jew\", \"Barely a Jew\", \"Borderline Jew\", \"Borderline Jew\", \"Not a Jew\", \"Barely a Jew\");\nrat = new Array(4, 4, 2, 1, 2, 2, 3, 2, 2, 3, 3, 4, 1, 0, 2, 3, 2, 1, 2, 4, 3, 1, 1, 2, 1, 2, 4);\nfunction next() {\n setTitle(nam[cur]);\n setVerdict(ver[cur]);\n c = cur * 3;\n setRatings(rat[c], rat[c+1], rat[c+2]);\n cur++;\n setImage('adev/adev'+cur);\n if (cur == num) cur = 0;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1541,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/t/the_bluths.jpg",
+  "created_at": "2025-03-29T13:17:02+02:00",
+  "updated_at": "2025-03-29T13:17:02+02:00"
+}

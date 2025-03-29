@@ -1,0 +1,13 @@
+{
+  "name": "Boris Nemtsov",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3139",
+  "verdict": "Borderline Jew.",
+  "description": "\"No prophet is accepted in his hometown.\" — Luke 4:24\n\nYou know, if Jew or Not Jew is quoting the NEW Testament, something is afoot. Leave it to ole Jesus to share some wisdom. No prophet, he is saying? Well, he is right...\n\nBoris Nemtsov foresaw the future. Once a rising Russian politician, he saw the evils of Vladimir Putin as soon as the latter took office. So Nemtsov spoke up, time and again, about the tyrannical mania stemming from the highest office in Russia.\n\n\"If he needs a triumphant war with Ukraine, he will make war.\"\n\nNemtsov said that eight years ago. No one in Russia listened. Well, Putin did.\n\nOn February 27, 2015, Nemtsov was shot four times in the back. The people who ordered the killing were never found. Let's just say Putin put as much effort in finding the real killer as O.J. Simpson did. All he had to do was look in the mirror.\n\n\n\"Prophets have always been burned at the stake.\" — Vladimir Vysotsky\n\n\nu = document.location.href.toLowerCase();\nif (u.indexOf('tl=ru') != -1) {\n q = document.getElementById(\"quote\");\n q.innerHTML = '\u003ci\u003e'+String.fromCharCode(171)+'\u0026#1053;\u0026#1086; \u0026#1103;\u0026#1089;\u0026#1085;\u0026#1086;\u0026#1074;\u0026#1080;\u0026#1076;\u0026#1094;\u0026#1077;\u0026#1074; - \u0026#1074;\u0026#1087;\u0026#1088;\u0026#1086;\u0026#1095;\u0026#1077;\u0026#1084;, \u0026#1082;\u0026#1072;\u0026#1082; \u0026#1080; \u0026#1086;\u0026#1095;\u0026#1077;\u0026#1074;\u0026#1080;\u0026#1076;\u0026#1094;\u0026#1077;\u0026#1074; - \u0026#1074;\u0026#1086; \u0026#1074;\u0026#1089;\u0026#1077; \u0026#1074;\u0026#1077;\u0026#1082;\u0026#1072; \u0026#1089;\u0026#1078;\u0026#1080;\u0026#1075;\u0026#1072;\u0026#1083;\u0026#1080; \u0026#1083;\u0026#1102;\u0026#1076;\u0026#1080; \u0026#1085;\u0026#1072; \u0026#1082;\u0026#1086;\u0026#1089;\u0026#1090;\u0026#1088;\u0026#1072;\u0026#1093;.'+String.fromCharCode(187)+' \u0026mdash; \u0026#1042;\u0026#1083;\u0026#1072;\u0026#1076;\u0026#1080;\u0026#1084;\u0026#1080;\u0026#1088; \u0026#1042;\u0026#1099;\u0026#1089;\u0026#1086;\u0026#1094;\u0026#1082;\u0026#1080;\u0026#1081;\u003c/i\u003e';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3139,
+  "category": "Politics",
+  "image_url": "http://jewornotjew.com/img/people/b/boris_nemtsov.jpg",
+  "created_at": "2025-03-29T13:17:43+02:00",
+  "updated_at": "2025-03-29T13:17:43+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Elmyr de Hory",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3048",
+  "verdict": "Jew",
+  "description": "Each of these pairs of paintings contains an original by the master Amedeo Modigliani and a fake by the master forger Elmyr de Hory.\n\n\n\n\n\n\n\n\nReal!\nReal!\n\n\n\n\n\n\nReal!\nReal!\n\n\n\n\n\n\nReal!\nReal!\n\n\n\n\n\n\n\n\n\n\nCan you pick out the real ones?\n\n\nYou got two right... No, wait, one right? No, we had it correct the first time, it was two... we think?\n\nYou are probably not a professional (if you are, feel free to drop us a note, we have some... art to appraise), but this is pretty hard, isn't it? Elmyr de Hory, born Elemer Hoffmann, was one of 20th century's most notorious forgers. His specialties: Picasso, Matisse, Renoir, and fellow Jew Modigliani.\n\nAt some point, de Hory owned up to his fakeries and retired to a life of... painting (and shtupping his nubile companion). And, because a snake must eat his tail, he own paintings started to get forged! \n\nAfter some thought... You got one right. We're pretty sure!\n\n\nloadPics()\nfunction ran() {\n return parseInt(Math.random() * 2);\n}\nfunction loadPics() {\n loadPic(1);\n loadPic(2);\n loadPic(3);\n}\nfunction loadPic(x) {\n r = ran();\n e1 = document.getElementById(\"pic\"+x+\"1\");\n e2 = document.getElementById(\"pic\"+x+\"2\");\n f1 = (r == 0) ? \"fake\" : \"real\";\n f2 = (r == 1) ? \"fake\" : \"real\";\n e1.src = \"img/other/edh/\" + f1 + x + \".jpg\";\n e2.src = \"img/other/edh/\" + f2 + x + \".jpg\";\n}\nfunction clickPic(x, y) {\n ra = document.getElementsByName(\"r\"+x);\n ra[y-1].checked = true;\n}\nfunction checkRadio(r) {\n return (parseInt(r.value) \u003e 0);\n}\nfunction submitForm() {\n dff = document.ff;\n if (checkRadio(dff.r1) \u0026\u0026 checkRadio(dff.r2) \u0026\u0026 checkRadio(dff.r3)) {\n  v = ran();\n  if (v == 1) {\n   document.getElementById(\"q1\").innerHTML = \"one\";\n   document.getElementById(\"q2\").innerHTML = \"two\";\n   document.getElementById(\"q3\").innerHTML = \"one\";\n   document.getElementById(\"q4\").innerHTML = \"two\";\n  }\n  hideDiv(null, \"butDiv\");\n  showDiv(null, \"textDiv\");\n } else {\n  alert(\"Please pick the real paintings!\");\n }\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3048,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/e/elmyr_de_hory.jpg",
+  "created_at": "2025-03-29T13:17:40+02:00",
+  "updated_at": "2025-03-29T13:17:40+02:00"
+}

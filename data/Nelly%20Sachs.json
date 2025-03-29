@@ -1,0 +1,13 @@
+{
+  "name": "Nelly Sachs",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2239",
+  "verdict": "Jew",
+  "description": "The Nobel Committee loves sharing prizes. Year after year, instead of having solitary winners, they divide each prize two or three ways. And that makes sense, really. There are so few of these to go around. Might as well spread the wealth.\n\nWe shouldn't have said \"each\" above. The Prize for Literature is notoriously non-divisible, probably because writing is such a solitary activity. Just four times did the committee decide to split this one up.\n\nThe first such instance was in 1904, when the prize was shared by a Spaniard and a Frenchman. Afterwards, the Nobels decided to group it ethnically: two Danes shared in 1917, two Jews in 1966, and two Swedes in 1974.\n\nAh, yes, the two Jews! They were Shmuel Yosef Agnon and Nelly Sachs. The Galician-born Agnon was the first Israeli to win any Nobel; his writing reflected various Jewish communities he lived in, from Poland to Jerusalem. The German-born Sachs became the first Jewish woman laureate (if we discount Gerty Cori, who converted). According to Sachs, her poetry \"represent[ed] the tragedy of the Jewish people.\"\n\nLook, they get to share a profile and a perfect score, too!\n\nfunction loadPic(x) {\nif (x) {\n remember();\n} else {\n memorize();\n setImage('shmuel_yosef_agnon');\n setTitle('Shmuel Yosef Agnon');\n setSubhead('July 17, 1888 - February 17, 1970');\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2239,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/n/nelly_sachs.jpg",
+  "created_at": "2025-03-29T13:17:20+02:00",
+  "updated_at": "2025-03-29T13:17:20+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Kim Jong-un",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1996",
+  "verdict": "Not a Jew",
+  "description": "ratPic1.src = 'img/other/kim.jpg';\nratPic2.src = 'img/other/kim.jpg';\nratPic3.src = 'img/other/kim.jpg';\n\n\n.container {\nposition: relative;\n}\n.d1 {\nopacity:0.1;\nfilter:alpha(opacity=10);\nwidth: 100%;\nheight: 100%;\nposition: absolute;\ntop: 0;\nleft: 0;\n}\n.d2 {\nz-index: 10;\nwidth: 100%;\nheight: 100%;\nposition: absolute;\nfont-weight: bold;\n-ms-transform: rotate(45deg);\n-webkit-transform: rotate(45deg);\ntransform: rotate(45deg);\nleft: -150;\n}\n\n\nKim Jong-un is fat. Kim Jong-un is the leader of North Korea. Kim Jong-un has no sense of humor. Kim Jong-un loves basketball. Kim Jong-un likes looking at things. Kim Jong-un's father is dead. Kim Jong-un wears high heels.\n\nKim Jong-un is fat. Kim Jong-un is short. Kim Jong-un wants to be a Bond villain. Kim Jong-un is a communist. Kim Jong-un has multiple chins. Kim Jong-un is a great golfer. Kim Jong-un once tried to wrestle a bear. Kim Jong-un has a big head. Kim Jong-un went to a school in Switzerland. Kim Jong-un is friends with Dennis Rodman. Kim Jong-un doesn't like when people make fun of him. Kim Jong-un can't walk and chew gum at the same time.\n\nKim Jong-un is fat. Kim Jong-un likes picking mushrooms. Kim Jong-un enjoys looking at pornography. Kim Jong-un sometimes forgets to floss. Kim Jong-un changes his underwear once a week. Kim Jong-un might be worshiped by some people. Kim Jong-un does not know trigonometry. Kim Jong-un has bushy eyebrows.\n\nKim Jong-un is fat. Kim Jong-un likes short muscular women. Kim Jong-un owns four cats. Kim Jong-un has a lot of nose hair. Kim Jong-un can pull a tractor with his teeth. Kim Jong-un likes to eat spaghetti and meatballs. Kim Jong-un has never been to the proctologist.\n\nKim Jong-un is fat. Kim Jong-un once disappeared for three months. Kim Jong-un is lonely. Kim Jong-un wanted to be an accountant when he grew up. Kim Jong-un's favorite movie is \"Red Sonja\". Kim Jong-un is not Jewish.\n\nREDACTED",
+  "pros": null,
+  "cons": null,
+  "score": 1996,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/k/kim_jong-un.jpg",
+  "created_at": "2025-03-29T13:17:13+02:00",
+  "updated_at": "2025-03-29T13:17:13+02:00"
+}

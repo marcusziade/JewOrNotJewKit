@@ -1,0 +1,13 @@
+{
+  "name": "Jack Klugman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2373",
+  "verdict": "Jew",
+  "description": "For this profile only, Jew or Not Jew is turning into... Dead or Not Dead! Please enter a name below; we will scan our extensive database to tell you if the person you searched for is... dead or not dead. We don't have all the answers, but we'll try our best!\n\n\n\n\n\n\n\n\n\nWhy is Jack Klugman fronting this profile? The answer is simple: we weren't sure if he was dead...\n\n\n\n\nsuccessFunction = 'loadData()';\nbox = document.ff.sf;\nsearched = null;\nma = document.getElementById('ansMsg');\nfunction doSearch() {\n  t = box.value.trim();\n  t = t.replace(/\u003c/g, \"\");\n  t = t.replace(/\u003e/g, \"\");\n  if (t.length \u003c 3) {\n    alert(\"Please enter at least 3 characters\");\n    return false;\n  }\n  searched = t;\n  if (t == 'God') t = 'G-d';\n  callUrl(t);\n  return false;\n}\nfunction callUrl(s) {\n  loadUrl('loadsearch.jsp?DOND=1\u0026SEARCH='+s+'\u0026RAND='+Math.random());\n}\nfunction loadData() {\n  a = retVal.split('|');\n  id = parseInt(a[0]);\n  name = a[1];\n  multi = parseInt(a[2]);\n  alive = parseInt(a[3]);\n  s = '';\n  if (id == 0) s = '\u003cb\u003e' + searched + '\u003c/b\u003e does not match any profiles.';\n  else if (id == -1) s = '\u003cb\u003e' + searched + '\u003c/b\u003e matches too many profiles.';\n  else {\n    m = (multi == 0) ? 'is' : 'are';\n    a = 'Not Dead';\n    if (alive == 0) a = 'Dead';\n    else if (alive == -1) a = 'Some Dead, Some Not Dead';\n    else if (alive == -2) a = 'Not Real';\n    s = '\u003cb\u003e' + name + '\u003c/b\u003e ' + m + '... \u003cb\u003e' + a + '\u003c/b\u003e!';\n  }\n  ma.innerHTML = s;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2373,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/j/jack_klugman.jpg",
+  "created_at": "2025-03-29T13:17:23+02:00",
+  "updated_at": "2025-03-29T13:17:23+02:00"
+}

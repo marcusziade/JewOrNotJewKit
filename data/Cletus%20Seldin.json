@@ -1,0 +1,13 @@
+{
+  "name": "Cletus Seldin",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2843",
+  "verdict": "Jew",
+  "description": "This is Cletus Seldin. He is a professional boxer, and quite possibly the only Jew ever named Cletus. As of this writing, Seldin's record is a very respectable 27-1-1, and he holds one of the super flyweight \"lesser\" world titles.\n\nSeldin's nickname? The Hebrew Hammer.\n\nUgh.\n\nThat moniker just can't escape sporting Jews, can it? We already discussed its prevalence in baseball (Hank Greenberg, Al Rosen, Ryan Braun, and others), but it also has popped up in sports as diverse as tennis (Dudi Sela), soccer (Andy Gruenebaum), and skeleton (AJ Edelman).\n\nEnough is enough! His name is Cletus, for crying out loud! That should be enough fodder...\n\nThere is only one athlete who should be allowed that nickname. This is Ken Flax. He is Jewish, and he finished 18th in the 1988 Olympics in...\n\nThe hammer throw.\n\nflax = false;\nfunction flip() {\nflax = !flax;\nif (flax) {\n memorize();\n setImage('ken_flax');\n setTitle('Ken Flax');\n setRatings(4, 3, 3);\n setSubhead('April 20, 1963 \u0026mdash;');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2843,
+  "category": "Sports",
+  "image_url": "http://jewornotjew.com/img/people/c/cletus_seldin.jpg",
+  "created_at": "2025-03-29T13:17:35+02:00",
+  "updated_at": "2025-03-29T13:17:35+02:00"
+}

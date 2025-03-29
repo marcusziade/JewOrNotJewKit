@@ -1,0 +1,13 @@
+{
+  "name": "Charles Feltman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1426",
+  "verdict": "Not a Jew",
+  "description": "Hot dogs. Chock-full of meaty goodness in the middle of a bread bun. But who came up with such a wonderful idea?\n\nThe meat sausage has been around for centuries. The bread bun has been around for centuries. But it wasn't until 1867 when the idea to bring the two together was born. Charles Feltman, a German immigrant (no, he wasn't Jewish, although often erroneously reported as such), opened the first hot dog stand on Coney Island. Deliciousness started spreading.\n\nNow, Feltman might have invented the hot dog, but many believe it was made famous by Nathan Handwerker. The Polish Jew used to work for Feltman, but decided to go into business for himself, opening his own hot dog stand. His big idea? Undercutting Feltman's price of ten cents per dog by selling his for a nickel. Obviously, a huge rivalry developed.\n\nWho won? Well, Feltman died in 1910, and by the time the Depression rolled around, his business was no more. Handwerker passed away in 1974, but his business has been carried through by his family and into the Nathan's Famous brand you can buy in your supermarket today. So the winner is clear.\n\nSo which one should we be profiling?\n\nnathan = false;\nfunction flip() {\nnathan = !nathan;\nif (nathan) {\n memorize();\n setImage('nathan_handwerker');\n setTitle('Nathan Handwerker');\n setRatings(5, 4, 3);\n setVerdict('Jew');\n setSubhead('June 14, 1892 - March 25, 1974');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1426,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/c/charles_feltman.jpg",
+  "created_at": "2025-03-29T13:16:59+02:00",
+  "updated_at": "2025-03-29T13:16:59+02:00"
+}

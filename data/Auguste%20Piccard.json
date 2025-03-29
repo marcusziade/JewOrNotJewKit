@@ -1,0 +1,13 @@
+{
+  "name": "Auguste Piccard",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1905",
+  "verdict": "Barely a Jew",
+  "description": "Auguste Piccard was much more than a balloonist.\n\n(Yes, we realize, this is the second balloonist we're profiling in a matter of days. Let it be.)\n\nPiccard was a physics professor whose work on cosmic radiation supported Einstein. He was an inventor who created a gondola from pressurized aluminum. Aboard that gondola, Piccard was the first to balloon into the stratosphere. He also invented the bathyscaphe, a free-diving, man-holding device. (Jacques Cousteau was a fan.) Piccard's son was the first to descend into the Mariana Trench, doing so inside his father's invention.\n\nPiccard was also the model for Professor Calculus (Tournesol in the original), the absent-minded friend and mentor of Tintin in the famed comic series.\n\nWas he Jewish? It seems that Piccard was born a Christian, but did have Jewish ancestry. As for Professor Calculus? We'll let it be.\n\nfunction loadPic() {\nswapPic('a/auguste_piccard','tournesol');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1905,
+  "category": "Academia",
+  "image_url": "http://jewornotjew.com/img/people/a/auguste_piccard.jpg",
+  "created_at": "2025-03-29T13:17:11+02:00",
+  "updated_at": "2025-03-29T13:17:11+02:00"
+}

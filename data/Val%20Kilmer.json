@@ -1,0 +1,13 @@
+{
+  "name": "Val Kilmer",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1716",
+  "verdict": "Not a Jew",
+  "description": "Do you remember when Val Kilmer was young? He looked like this, not like that.\n\nDo you remember when Val Kilmer was funny? \"Top Secret!\" is one of the most underrated movies of all time.\n\nDo you remember when Val Kilmer was Iceman? He felt the need... the need for speed.\n\nDo you remember when Val Kilmer was in \"Heat\"? He held his own with De Niro. \n\nDo you remember when Val Kilmer was Batman? Alright, it's best not to remember that.\n\nDo you remember when Val Kilmer was Moses? Of all the people they could have picked...\n\nDo you remember when Val Kilmer claimed he had Sephardic ancestry? As well as Mongolian and Cherokee...\n\nDo you remember when Val Kilmer was relevant?\n\nfunction loadPic(x) {\nif (x == 0) {\n setImage('kilmer');\n} else {\n setImage('v/val_kilmer');\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1716,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/v/val_kilmer.jpg",
+  "created_at": "2025-03-29T13:17:06+02:00",
+  "updated_at": "2025-03-29T13:17:06+02:00"
+}

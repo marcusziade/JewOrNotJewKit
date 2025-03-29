@@ -1,0 +1,13 @@
+{
+  "name": "Karlie Kloss",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2728",
+  "verdict": "Jew",
+  "description": "Supermodel Karlie Kloss, who recently took over as the host of \"Project Runaway\", is related to one of the most powerful men in the world. One guess who!\n\nSigh. You took a look in the \"See Also\" section, right? Yeah, it's that guy.\n\nKarlie, who converted to Judaism, is married to Joshua Kushner, the brother of Ivanka's husband's Jared, which makes her... something to the buffoon-in-charge. \"It's hard,\" she said when asked about the relation.  \"But I choose to focus on the values that I share with my husband, and those are the same liberal values that I was raised with and that have guided me throughout my life.\"\n\nApologies, Karlie, for mentioning that relation in this profile, and for stamping that family's face all over your page.\n\nMuch better?\n\nfunction flip() {\n loadPic(0, \"img/people/e/esti_ginzburg.jpg\", \"Esti Ginzburg\");\n loadPic(1, \"img/people/c/chava_mond.jpg\", \"Chava Mond\");\n loadPic(2, \"img/people/b/bar_refaeli.jpg\", \"Bar Refaeli\");\n}\nfunction loadPic(x, u, n) {\n d1 = document.getElementById(\"seeAlsoPic\"+x);\n if (d1 == null) return;\n d1.src = u;\n d2 = document.getElementById(\"seeAlsoName\"+x);\n d2.innerText = n;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2728,
+  "category": "Music",
+  "image_url": "http://jewornotjew.com/img/people/k/karlie_kloss.jpg",
+  "created_at": "2025-03-29T13:17:32+02:00",
+  "updated_at": "2025-03-29T13:17:32+02:00"
+}

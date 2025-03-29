@@ -1,0 +1,13 @@
+{
+  "name": "Mike Myers",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1459",
+  "verdict": "Not a Jew",
+  "description": "For all the cycles in the history of Saturday Night Live, there is one thing that keeps dragging the famed brand down: SNL movies. They have not exactly been successes, critically or financially.\n\nBut it could have been worse. Yes, even worse than the movie version of \"It's Pat\". We're talking about Linda Richman. Who is Linda Richman? Her. Well, actually, him.\n\nLinda Richman was the creation of Mike Myers, based on his real-life Jewish mother-in-law... Linda Richman. S/he hosted a talk show where guests would talk about coffee, New York, daughters, dogs... No big whoop. It was cringe-worthy... unless if you wanted to talk about the Civil War being neither civil nor a war. Discuss.\n\nIn any case, Myers wanted to make Linda into a feature-length film. The details are beyond sketchy, but you can bet your shpilkis that Barbra Streisand would have somehow be involved. Oy, gevalt!\n\nThankfully, SNL put a temporary kibosh on making movies, relegating Linda to the \"Best Of\" DVDs. Myers himself moved on, trying to make a movie version of his other character, the German asexual Dieter...\n\nYep... it could have been much, MUCH worse.\n\nfunction flip() {\n setImage('linda_richman');\n}\nfunction flip2() {\n setImage('m/mike_myers');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1459,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/m/mike_myers.jpg",
+  "created_at": "2025-03-29T13:16:59+02:00",
+  "updated_at": "2025-03-29T13:16:59+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "George Boolos",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3365",
+  "verdict": "Jew",
+  "description": "\"The Hardest Logic Puzzle Ever\" (so called because, well, it is) is a variation of Knights and Knaves, the riddle where knights always tell the truth and knaves always lie. (It seems that knaves unfairly got a bad reputation. We've never met one, so it's hard to say...)\n\nThree gods A, B, and C are called, in no particular order, True, False, and Random. True always speaks truly, False always speaks falsely, but whether Random speaks truly or falsely is a completely random matter. Your task is to determine the identities of A, B, and C by asking three yes-no questions; each question must be put to exactly one god. The gods understand English, but will answer all questions in their own language, in which the words for \"yes\" and \"no\" are \"da\" and \"ja\", in some order. You do not know which word means which.\n\nThe answer? What, you think we're gonna tell you the answer? You figure it out on your own! (The truth? The answer is too complex to explain here. They don't call it \"The Hardest Logic Puzzle Ever\" for nothing.)\n\nSo let's solve another puzzle: who created it? The original Knights and Knaves puzzle might have first appeared in a 1953 book \"Mathematical Recreations\" (talk about an oxymoron) by Belarusian-born Belgian, Maurice Kraitchik. Logician Raymond Smullyan, who wrote numerous puzzle books, popularized (we're using this word lightly) Knights and Knaves, making the variations progressively more difficult. However, in its hardest form, the puzzle was presented in 1996 by philosopher George Boolos. He credits both Smullyan, as well as AI pioneer John McCarthy, whose idea was to make the gods' answers purposely unknowable.\n\nHere's an easier puzzle: which of the four were Jewish?\n\nAll of them!\n\nfunction loadPic(x) {\nmemorize();\nif (x == 1) {\n setTitle('Maurice Kraitchik');\n setSubhead('April 21, 1882 - August 19, 1957');\n setRatings(4, 4, 3);\n setImage('gb/maurice_kraitchik');\n} else if (x == 2) {\n setTitle('Raymond Smullyan');\n setSubhead('May 25, 1919 - February 6, 2017');\n setRatings(4, 3, 4);\n setImage('gb/raymond_smullyan');\n} else if (x == 3) {\n setTitle('John McCarthy');\n setSubhead('September 4, 1927 - October 24, 2011');\n setRatings(3, 3, 4);\n setImage('gb/john_mccarthy');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3365,
+  "category": "Literature",
+  "image_url": "http://jewornotjew.com/img/people/g/george_boolos.jpg",
+  "created_at": "2025-03-29T13:17:49+02:00",
+  "updated_at": "2025-03-29T13:17:49+02:00"
+}

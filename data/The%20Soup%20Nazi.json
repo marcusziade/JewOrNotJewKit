@@ -1,0 +1,13 @@
+{
+  "name": "The Soup Nazi",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3344",
+  "verdict": "Not a Jew",
+  "description": "The Soup Nazi is not Jewish. The Soup Nazi is Jewish. The Soup Nazi is probably not Jewish. All of the above are true. Confused yet?\n\nThe Soup Nazi, of course, is one of the most famous one-off characters in \"Seinfeld\" the history of television. He makes the best soup in the world... but he treats his customers like garbage. NO SOUP FOR YOU!\n\nLike much of \"Seinfeld\", the Soup Nazi was based on a real person, in this case Al Yeganeh... who really made terrific soup and was really mean to his customers. And oh boy, did Yeganeh did not like the moniker that the show bestowed on him. (Which, in all honesty, is quite understandable.) He even claimed it ruined his life. In any case, Yeganeh, who is Iranian, isn't Jewish.\n\nLarry Thomas, the actor who played the Soup Nazi, is. Unlike his real-life counterpart, Thomas has embraced the on-screen version. For the past three decades, he has milked The Soup Nazi for all that it could be worth. And who can blame him: other than \"Seinfeld\", his most prominent role was an episode of \"Arrested Development\" as... Saddam Hussein.\n\nWhich brings us back to... the Soup Nazi, who, apparently has a name, at least in the script: Yev Kassem. \"Yev\" is pretty open-ended, but \"Kassem\" does seem rather Arabic, so... Not a Jew?\n\nStill confused? NO SOUP FOR YOU!\n\n\nfunction loadPic(x) {\nmemorize();\nif (x == 1) {\n setImage('larry_thomas');\n setSubhead('(Larry Thomas)');\n setRatings(4, 3, 3);\n setVerdict ('Jew');\n} else if (x == 2) {\n setImage('al_yeganeh');\n setSubhead('(Al Yeganeh)');\n setRatings(0, 1, 3);\n setVerdict ('Not a Jew');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3344,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/t/the_soup_nazi.jpg",
+  "created_at": "2025-03-29T13:17:48+02:00",
+  "updated_at": "2025-03-29T13:17:48+02:00"
+}

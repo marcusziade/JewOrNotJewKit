@@ -1,0 +1,13 @@
+{
+  "name": "Auric Goldfinger",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2618",
+  "verdict": "Not a Jew",
+  "description": "This is Goldfinger, the eponymous villain of a James Bond movie. This is Goldfinger, an architect. Related? You bet!\n\nGoldfinger (the architect) was a Hungarian-born Jew who emigrated to England in the 1930s. A stern, humorless man, he designed some of the buildings around London... buildings that Ian Fleming hated so much that he named Goldfinger (the villain) after him!\n\nGoldfinger (the architect) did not exactly like that, so he sued the author. The two eventually settled, with Fleming promising that Goldfinger (the villain) would always be referred by his first name, Auric. He was also specifically explained to be NOT Jewish. In return, Goldfinger (the architect) had his legal costs covered, plus got six(!?) copies of the book.\n\nIn fact, Fleming almost changed the character's name to \"Goldprick\"... Now that would be pushing it, even for a Bond villain.\n\nfunction loadPic(b) {\nif (b) {\n memorize();\n setImage('erno_goldfinger');\n setTitle('Erno Goldfinger');\n setRatings(5, 3, 2);\n setVerdict('Jew');\n setSubhead('September 11, 1902 - November 15, 1987');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2618,
+  "category": "Literature",
+  "image_url": "http://jewornotjew.com/img/people/a/auric_goldfinger.jpg",
+  "created_at": "2025-03-29T13:17:29+02:00",
+  "updated_at": "2025-03-29T13:17:29+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Casimir Funk",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1072",
+  "verdict": "Borderline Jew.",
+  "description": "Are you related to Dr. Casimir Funk?\n\n Yes\n No\n\n\n\nMove along.\n\n\nWhew. That was a close one.\n\nSince you're not related to Dr. Funk, you possibly have no idea who he is. Well, he is credited with the discovery of vitamins, those pesky little pills that add much-needed nutrients to one's diet.\n\nSo why do we not want Dr. Funk's relatives to read this profile? Well, because every time a website claims him to be Jewish, one of them pops up to claim that he was not a Jew. Supposedly, Funk \"was very annoyed that anyone, any religion attempted to lay claim to him.\" And since he's been dead for over 40 years, it's up to his relatives to fight the pointless fight.\n\nWell, we got news for you, relatives. Even though he wasn't Jewish religiously, you can't deny his Jewish heritage. What? You don't like the verdict? Well what are you doing clicking on the 'No' in the first place?\n\n\n\nfor (i=0;i\u003c2;i++) {\ndocument.ff.r1[i].checked = false;\n}\nfunction doSelect(x) {\ndv1 = d1; dv2 = d2;  v = 'Nothing to see here';\nif (x == 1) {dv1 = d2; dv2 = d1; v = 'Borderline Jew';}\ndv2.style.display='none';\ndv1.style.display='inline';\nsetVerdict(v);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1072,
+  "category": "Religion",
+  "image_url": "http://jewornotjew.com/img/people/c/casimir_funk.jpg",
+  "created_at": "2025-03-29T13:16:49+02:00",
+  "updated_at": "2025-03-29T13:16:49+02:00"
+}

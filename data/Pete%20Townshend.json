@@ -1,0 +1,13 @@
+{
+  "name": "Pete Townshend",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3619",
+  "verdict": "Not a Jew",
+  "description": "Charlie Chaplin still holds the all-time record for highest ever Jew Score for a goy, a 10 he received when being this website's first-ever posted profile. There have been challengers, but they all have fallen short. (Most recently, Martin Short.) Even our readers have gotten in on the fun: we have recently received a suggestion that Pete Townshend might break the record.\n\nThe evidence? Pete's mother sang in a Jewish choir. His family lived in a Jewish neighborhood and shared cooking with devout Jewish neighbors. And the schnoz! Look at that schnoz!\n\nApologies, dear reader, but those reasons are a tad too flimsy. A pretty high K Score, sure, as we would love to count Townshend among us, but the other scores? Maybe if HE sang in a Jewish choir, not his mother...\n\nBut yeah, the schnoz. It's a pretty fantastic schnoz.\n\nnose = false;\nfunction flip() {\nnose = !nose;\nif (nose) {\n memorize();\n setImage('townshend_nose');\n setTitleOnly(\"Pete Townshend's Nose\");\n setRatings(0, 5, 5);\n setVerdict('Sadly, Not a Jew');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3619,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/p/pete_townshend.jpg",
+  "created_at": "2025-03-29T13:17:55+02:00",
+  "updated_at": "2025-03-29T13:17:55+02:00"
+}

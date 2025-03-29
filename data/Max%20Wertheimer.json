@@ -1,0 +1,13 @@
+{
+  "name": "Max Wertheimer",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3337",
+  "verdict": "Jew",
+  "description": "Max Wertheimer was one of the co-founders of Gestalt psychology, a Czech-born Jew who got out of Germany in 1933, just in time. But we're not here to talk about his distinguished career. We're here to discuss a math problem he posed to a friend. See if you can solve it!\n\n\nThere's an old car that needs to go up and down a hill. The hill is one mile going up, and one mile going down. Because the car is old, it can only average a speed of 15 mph during the ascent, but may be able to go faster during the descent. How fast must the car be going downhill, in order for its speed to reach an average of 30 mph for the entire two-mile journey?\n\n\n\n  \n\n\n\nNo, it's not 45! Giving up is the right answer. The problem can't be solved! It's pretty simple, really: for a car to travel two miles at 30 mph, it will take four minutes. Well, that's exactly how long the ascent took: one mile at 15 mph! So there is no speed, not even the speed of light, which will make the descent possible. The four minutes are already used up.\n\nConfused? Don't be ashamed. Wetheiemer's friend got it wrong as well, and he was pretty damn smart. That friend? Albert Einstein. Oh, he figured it out... eventually.\n\n\n\n\ntries = 0;\nb1 = document.tf.a1;\nwa = 45;\n\nfunction answer1() {\n wa = parseInt(b1.value.trim());\n if (isNaN(wa)) wa = 45;\n tries++;\n m = \"Wrong!\";\n if (tries \u003e= 2) m = \"Just give up.\";\n alert(m);\n b1.focus();\n}\nfunction giveup() {\n b1.disabled = true;\n d1.style.display=\"inline\";\n d2.innerHTML = wa;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3337,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/m/max_wertheimer.jpg",
+  "created_at": "2025-03-29T13:17:48+02:00",
+  "updated_at": "2025-03-29T13:17:48+02:00"
+}

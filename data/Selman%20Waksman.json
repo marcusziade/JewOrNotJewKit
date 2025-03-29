@@ -1,0 +1,13 @@
+{
+  "name": "Selman Waksman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1937",
+  "verdict": "Jew",
+  "description": "Selman Waksman, Jew, won the Nobel for Medicine in 1952. His contributions are invaluable: he discovered streptomycin, the cure for tuberculosis. Altogether, he discovered some 20 antibiotics... Heck, he coined the term!\n\nAlbert Schatz, Jew, did not win the Nobel for Medicine in 1952... or any other year. Strange, since Schatz's contributions are invaluable: he discovered streptomycin, the cure for tuberculosis... wait a minute!\n\nIn fact, Waksman and Schatz worked together, at Rutgers University in New Jersey. They discovered streptomycin as a team. For whatever reason, Schatz signed his rights away to Rutgers, and Waksman began to take all credit for the discovery. So he got the Nobel (and the royalties), and Schatz was shut out.\n\nUgh. We don't like this one bit. Maybe we should have profiled Schatz instead...\n\nschatz = false;\nfunction flip() {\nschatz = !schatz;\nif (schatz) {\n memorize();\n setImage('albert_schatz');\n setTitle('Albert Schatz');\n setSubhead('February 2, 1920 - January 17, 2005');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1937,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/s/selman_waksman.jpg",
+  "created_at": "2025-03-29T13:17:12+02:00",
+  "updated_at": "2025-03-29T13:17:12+02:00"
+}

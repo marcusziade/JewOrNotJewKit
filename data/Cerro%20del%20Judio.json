@@ -1,0 +1,13 @@
+{
+  "name": "Cerro del Judio",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3084",
+  "verdict": "Borderline Jew.",
+  "description": "Have you ever been to Magdalena Contreras, one of Mexico City's 16 boroughs? Can't say that we have. But in the middle of that district, among all these houses that seem to grow on top of each other, sits Cerro del Judio: literally, the \"Hill of the Jew\".\n\nHill? More like mountain: it's 9,000 feet (2.75 km) tall! We wonder how it got that name. There are not exactly many Jews in Mexico City...\n\nOf course, the mountain predates even Mexico City. Its history goes back to the indigenous Otomi (not even the Aztecs!). The summit is crowned by a 13th century pyramid built by that ancient culture. And on top of that pyramid... Wait, what the hell is that?\n\nApparently, Cerro del Judio is also known as Cerro del las Tres Cruces. For those not linguistically inclined, that obviously translates to \"Hill of the Three Crosses\".\n\nThis is lame.\n\ncrosses = false;\nfunction flip() {\ncrosses = !crosses;\nif (crosses) {\n memorize();\n setImage('tres_cruces');\n setRatings(1, 0, 1);\n setVerdict('Not a Jew');\n setTitle('Cerro del las Tres Cruces');\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3084,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/c/cerro_del_judio.jpg",
+  "created_at": "2025-03-29T13:17:41+02:00",
+  "updated_at": "2025-03-29T13:17:41+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Count Chocula",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1670",
+  "verdict": "Not a Jew",
+  "description": "Claim: Count Chocula was once pictured wearing a Star of David.\n\n\n\n\n\n\n\nFALSE\n\n\n\n\n\n\nOrigins: Count Chocula is part of General Mills' monster-themed cereal line that also includes Franken Berry, Boo Berry, and since discontinued Fruit Brute and Fruity Yummy Mummy. Introduced in 1971, Count Chocula is now only available during the Halloween season.\n\nThe Count Chocula box has been constantly changing, and such was the case in 1987, when General Mills decided to frame the cartoon count by the title character from the 1931 film \"Dracula\".\n\nSoon after boxes started to appear on shelves, customers noticed something peculiar: a Star of David around Dracula's (NOT Chocula's) neck. The packaging was immediately changed, and General Mills even earned praise from the Anti-Defamation League (and they don't praise ANYONE).\n\nSo why the Star of David? Well, apparently General Mills was using a new technique to enhance images, and no one on their crack staff noticed that the enhanced medallion looked like the Jewish star. \"We are not anti-Semitic,\" General Mills was quoted. \"Our intent was merely to use Dracula's likeness in a fresh and entertaining way.\"\n\nSo why was Dracula wearing the Star of David? As it turns out, in the 1931 film Bela Lugosi did wear something that resembled the Jewish star. However, upon closer examination, it clearly turned out to be just a six-pointed medallion.\n\nAs for Chocula? He's clearly absolved.\n\n\n\n\nSources:\n\nMayer, Caroline. \"Necklace Chokes Count Chocula.\"\nLos Angeles Times. 19 October 1987.\n\nNadler, Allan. \"Imaginary Vampires, Imagined Jews.\"\nJewish Ideas Daily. 11 July 2011.\n\nfunction loadPic(x) {\n setImage(x == 0 ? 'c/count_chocula' : 'cc/count'+x);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1670,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/c/count_chocula.jpg",
+  "created_at": "2025-03-29T13:17:05+02:00",
+  "updated_at": "2025-03-29T13:17:05+02:00"
+}

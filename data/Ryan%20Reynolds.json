@@ -1,0 +1,13 @@
+{
+  "name": "Ryan Reynolds",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2450",
+  "verdict": "Not a Jew",
+  "description": "Boy, was Ryan Reynolds great in Blade Runner 2049! Wait, wasn't that Ryan Gosling? Reynolds was the one in La La Land... right? Ugh... we think that's right?\n\nIf you are as confused as we are between these two Canadian Ryans, take the quiz below!\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nStill confused? OK, how about this distinction: Reynolds was once married to Scarlett Johnasson, which earns him a measly I point. Gosling was never married to anyone Jewish. Got it?\n\n\n\na = new Array(1, 1, 0, 1, 0, 0, 1, 0, 1, 2);\nw = new Array(\"Reynolds\", \"Gosling\", \"Phillippe\");\ncur = 0;\nftd = document.getElementById(\"ft\");\nfpd = document.getElementById(\"fp\");\nfid = document.getElementById(\"fi\");\n\nfunction choose(x) {\n  t = \"Wrong\";\n  b = a[cur];\n  if (x == b) t = \"Correct\";\n  t += \"! That was\u003cbr\u003eRyan \" + w[b] + \".\";\n  fpd.src = \"img/other/ryan/p\" + (cur+1) + \".jpg\";\n  fpd.style.display = \"inline\";\n  ftd.innerHTML = t;\n  cur++;\n  if (cur == a.length) cur = 0;\n  fid.src = \"img/other/ryan/f\" + (cur+1) + \".jpg\";\n  //if (b != 2) loadPic(b);\n}\n\nfunction loadPic(x) {\nif (x == 0) {\n remember();\n} else {\n memorize();\n setImage('ryan/ryan_gosling');\n setTitle('Ryan Gosling');\n setRatings(0, 0, 4);\n setSubhead('November 12, 1980 \u0026mdash;');\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2450,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/r/ryan_reynolds.jpg",
+  "created_at": "2025-03-29T13:17:25+02:00",
+  "updated_at": "2025-03-29T13:17:25+02:00"
+}

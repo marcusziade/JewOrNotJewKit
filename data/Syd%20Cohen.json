@@ -1,0 +1,20 @@
+{
+  "name": "Syd Cohen",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2426",
+  "verdict": "Jew",
+  "description": "Wait a minute! There is something wrong here! You clicked on \"Syd Cohen\", but the profile is of \"Pablo Garcia\"... That's not right.\n\nHere, use the browser's back button or click this link to return to your previous page and click on \"Syd Cohen\" again.\n\nUhhh... that didn't work. Try refreshing?\n\nNope. What's going on, Jew or Not Jew?\n\nAlright, we're toying with you. Syd Cohen IS Pablo Garcia.\n\nConfused? Cohen was a middling baseball pitcher (in the 1930s, he appeared in a total of 55 games over three seasons for the Washington Senators), who also tried his luck in the Mexican League. There, management wanted more local players on the team... so, Cohen, who was \"olive-skinned\" and spoke perfect Spanish, became known as... you guessed it, Pablo Garcia.\n\nDespite a rather obscure career, Cohen left a lasting legacy: hometown El Paso named its baseball field \"Cohen Stadium\" for Syd and his fellow major league brother Andy. It's one of the few stadiums in America named for a Jew...\n\nConsidering its location, \"Garcia Stadium\" would be even more appropriate.\n\nfunction flip(b) {\n  if (b) {\n    memorize();\n    setTitleOnly('Pablo Garcia');\n    setRatings(4, 2, 3);\n  } else {\n    remember();\n  }\n}\nflip(true);",
+  "pros": null,
+  "cons": [
+    "function flip(b) {",
+    "memorize();",
+    "setTitleOnly('Pablo Garcia');",
+    "setRatings(4, 2, 3);",
+    "remember();",
+    "flip(true);"
+  ],
+  "score": 2426,
+  "category": "Sports",
+  "image_url": "http://jewornotjew.com/img/people/s/syd_cohen.jpg",
+  "created_at": "2025-03-29T13:17:24+02:00",
+  "updated_at": "2025-03-29T13:17:24+02:00"
+}

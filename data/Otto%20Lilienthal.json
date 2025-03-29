@@ -1,0 +1,13 @@
+{
+  "name": "Otto Lilienthal",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2315",
+  "verdict": "Not a Jew",
+  "description": "Otto Lilienthal was an aviation pioneer. His time came before airplanes; Lilienthal developed gliders, modeling them after birds. He would go to hills around Berlin, jump off, and... glide.\n\nThe Wright Brothers themselves called Lilienthal an inspiration. It was his advancements in gliding that help set them on the right path. Sadly, by the time they took flight, Lilienthal had already been dead for seven years.\n\nWe'll get back to that in a moment, but let's deal with the Jewish aspect first. Strangely, Lilienthal is often listed as a Jew, even in the Encyclopaedia Judaica. Perhaps it has something to do with the possibly-Jewy last name; in reality, it has goyishe Swedish roots. Lilienthal was born a Christian.\n\nBack to the death: in 1896, Lilienthal's glider malfunctioned, and he fell to his doom.\n\nSuch is the lot of an aviation pioneer...\n\nfunction loadPic() {\nswapPic('o/otto_lilienthal','lilienthal');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2315,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/o/otto_lilienthal.jpg",
+  "created_at": "2025-03-29T13:17:22+02:00",
+  "updated_at": "2025-03-29T13:17:22+02:00"
+}

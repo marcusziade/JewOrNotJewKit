@@ -1,0 +1,13 @@
+{
+  "name": "Beyonce Knowles",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1540",
+  "verdict": "Sadly, Not a Jew.",
+  "description": "It's time for JONJ trivia!... Pop star Beyonce is related to which Jewish musician?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCorrect! Apparently, someone from Mahler's family moved to America, where they became related to Beyonce's creole/black ancestors. We're pretty sure that there is no blood relation, and this was a long, long time ago, but still...\n\nMakes you wonder, doesn't it? If Gustav Mahler and Beyonce are long-distant cousins, what does that say about any given pair of people? Maybe your hated boss is a long-lost uncle? Maybe the girl you've been dying to ask out hides the secret of a thankfully-undiscovered relation? Maybe Beyonce is not just related to Mahler, but also to Bernstein, Goodman, Mendelssohn, Roth, and Simmons? Maybe ALL of us are related, somehow?\n\nOr, you know, not.\n\n\n\nfunction answer(x) {\n if (x != 3) { alert(\"Wrong!\"); return; }\n  document.getElementById(\"text\").style.display = 'inline';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1540,
+  "category": "Music",
+  "image_url": "http://jewornotjew.com/img/people/b/beyonce_knowles.jpg",
+  "created_at": "2025-03-29T13:17:02+02:00",
+  "updated_at": "2025-03-29T13:17:02+02:00"
+}

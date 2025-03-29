@@ -1,0 +1,13 @@
+{
+  "name": "Jeremy Allen White",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3435",
+  "verdict": "Not a Jew",
+  "description": "Jeremy Allen White, star of \"The Bear\", a pretty damn good show about a restaurant in Chicago, is often compared to... Gene Wilder. No, it's not because of his comedic skills. It's because people think that they look so much alike. People even ask if they are related! Frankly, we don't really see it... Do you?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nThey are not related.\n\na = generateArray();\nw = new Array(\"White\", \"Wilder\");\ncur = 0;\ncor = 0;\nover = false;\nftd = document.getElementById(\"ft\");\nfid = document.getElementById(\"fi\");\n\nfunction generateArray() {\n r1 = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10);\n r2 = randomizeArray(r1);\n r = new Array(10);\n r[0] = 1;\n for (i=1;i\u003c10;i++) r[i] = r2[i-1];\n return r;\n}\n\nfunction choose(x) {\n  if (over) return;\n  t = \"Wrong\";\n  b = (a[cur] \u003c= 5) ? 1 : 0;\n  if (x == b) { t = \"Correct\"; cor++; }\n  t += \"! That was\u003cbr\u003e\" + w[b] + \".\";\n  cur++;\n  if (cur == a.length) {\n    over = true;\n    t += \"\u003cbr\u003e\u003cbr\u003eScore: \" + cor + \" / 10\"; \n  } else {\n    fid.src = \"img/other/jaw/w\" + a[cur] + \".jpg\";\n  }\n  ftd.innerHTML = t;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3435,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/j/jeremy_allen_white.jpg",
+  "created_at": "2025-03-29T13:17:51+02:00",
+  "updated_at": "2025-03-29T13:17:51+02:00"
+}

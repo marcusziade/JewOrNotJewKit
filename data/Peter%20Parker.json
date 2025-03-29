@@ -1,0 +1,13 @@
+{
+  "name": "Peter Parker",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2641",
+  "verdict": "Sadly, Not a Jew.",
+  "description": "This Peter Parker is not Jewish. This Peter Parker is not Jewish. This Peter Parker is not Jewish (Andrew Garfield is, but we're not talking about him). This Peter Parker is not Jewish. This Peter Parker is...?\n\nThis Peter Parker is Peter B. Parker, a Spider-Man from an alternate universe introduced in the (very fun) animated \"Into the Spider-Verse\". When a flashback of that Parker's life is shown, there is a blink-and-you-miss-it scene, where he steps on a glass during his wedding to Mary Jane.\n\nCo-director Rodney Rothman, who is Jewish, gave an answer... sort of. \"I happen to have a personal conviction, for many reasons, that Peter B. Parker is likely Jewish.\" Well, there you go! He continues: \"because this is an alternate universe, we just don't know. It could be that Buddhists step on glass. It could be that M.J. is Jewish and Peter converted.\"\n\nCome on, Rodney, don't be ridiculous! Do you think is it actually possible that in ANY universe there is a Jewish girl named Mary Jane? Unlikely!\n\nThis Peter Parker? That's not Peter Parker, that's Peter Porker. Do you really have to ask?\n\nfunction loadPic(x) {\nmemorize();\nif (x == 5) {\n setTitle('Peter B. Parker');\n setRatings(4, 3, 4);\n setVerdict ('Jew');\n} else if (x == 4) {\n setTitle('Peter Porker');\n setRatings(0, 0, 4);\n setVerdict ('Not a Jew');\n} else {\n remember(true);\n}\nif (x == 0) {\n setImage('p/peter_parker');\n} else {\n setImage('pp/pp'+x);\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2641,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/p/peter_parker.jpg",
+  "created_at": "2025-03-29T13:17:30+02:00",
+  "updated_at": "2025-03-29T13:17:30+02:00"
+}

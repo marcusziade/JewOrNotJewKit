@@ -1,0 +1,13 @@
+{
+  "name": "Sy Sperling",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2804",
+  "verdict": "Jew",
+  "description": "You grow older. That once luscious mane of hair disintegrates strand by strand. Oh, male pattern baldness, the scourge of manhood!\n\nFaced with an ever decreasing coiffure, the man has a choice. He can let nature take its course, accept the inevitable baldness, and face the world with a newly-neat noggin. Or he can pursue other options, like Sy Sperling, pictured here (twice!).\n\nFor those who are fortunate enough to miss Sperling's pervasive presence in TV commercials in the 80s and 90s, let us remember.\n\n\"I'm not only the Hair Club President, but I'm also a client.\"\n\nSperling created Hair Club, the once-premier source for hair transplant and replacement. (It beats a toupee?) Because nothing says youthful virility more than taking hair from one's back and grafting to the head... \n\nLet nature take its course.\n\nswap = false;\nk = 0;\ninterval = 2000;\nsetTimeout('loadPic()', interval );\nfunction loadPic(x) {\nif (x == null) { k++; x = k%2; }\nu = 's/sy_sperling';\nif (x == 1) u = 'sperling';\nsetImage(u);\nsetTimeout('loadPic()', interval);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2804,
+  "category": "Politics",
+  "image_url": "http://jewornotjew.com/img/people/s/sy_sperling.jpg",
+  "created_at": "2025-03-29T13:17:34+02:00",
+  "updated_at": "2025-03-29T13:17:34+02:00"
+}

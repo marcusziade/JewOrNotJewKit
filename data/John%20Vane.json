@@ -1,0 +1,13 @@
+{
+  "name": "John Vane",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3507",
+  "verdict": "Jew",
+  "description": "John Vane was a bushranger. You don't know what a bushranger is? No, it has nothing to do with that time when George W. Bush owned the Texas Rangers.\n\nA bushranger is an Australian outlaw, an escaped convict who performed armed robberies. So if you just rob someone, you're not a bushranger yet. You need to rob someone, then go to jail, then escape, then rob someone again. With a gun. Clearly, there were so many of those in Australia, they had to come up with a name for them. Bushranger!\n\nSo, John Vane... wait, something does not sit right here. We got the wrong man, right?\n\nJohn Vane, the man pictured here, was, in fact, that bushranger, who, despite a rather Jewy beard, was not Jewish at all. John Vane, the man we originally intended to profile, pictured here, was a British pharmacologist who won a Nobel in Medicine for research of aspirin. Despite being the most British-looking person in history, his father was a Russian Jew. \n\nYou know, it would be rather cool if the same John Vane was a Nobel-winning Jewish doctor AND a bushranger... But that's too much to ask, isn't it?\n\nfunction flip() {\n remember();\n}\nfunction flip2() {\n memorize();\n setImage('vane');\n setRatings(0, 1, 1);\n setVerdict('Not a Jew');\n setSubhead('June 16, 1842 - January 30, 1906');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3507,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/j/john_vane.jpg",
+  "created_at": "2025-03-29T13:17:52+02:00",
+  "updated_at": "2025-03-29T13:17:52+02:00"
+}

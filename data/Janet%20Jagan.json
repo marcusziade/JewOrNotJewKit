@@ -1,0 +1,13 @@
+{
+  "name": "Janet Jagan",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1268",
+  "verdict": "Jew",
+  "description": "It's time for JONJ trivia!... Jewish American Janet Jagan was the president of what South American country?\n\n\n\n  \n\n\n\n\nYes, Guyana! Not Brazil, Argentina, or Chile. Guyana! The little English-speaking enclave on the Caribbean Sea. Go figure.\n\nJagan was born Janet Rosenberg in Chicago in 1920. In 1942, she met a Guyanaese dental student named Cheddi Jagan. The two married and moved to Guyana, where Janet worked as a nurse in her husband's practice.\n\nBut a nurse she did not stay. Always interested in politics, the duo founded the left-wing People's Progressive Party. They then proceeded to steadily rise through Guyana's political structure. Cheddi became president in 1992. When he passed away in 1997, Janet briefly became prime minister, before ascending to the nation's highest seat later that year.\n\nAnd that's pretty much all that we know about Guyana. Still, fascinating, isn't it?\n\n\n\nvar countries = new Array(\"Argentina\", \"Bolivia\", \"Brazil\", \"Chile\", \"Colombia\", \"Ecuador\", \"Paraguay\", \"Peru\", \"Suriname\", \"Uruguay\", \"Venezuela\");\nfunction isCountry(s) {\n for (i=0;i\u003ccountries.length;i++) {\n  if (countries[i] == s) return true;\n }\n return false;\n}\nfunction giveup() {\n if (confirm('Are you sure?')) {\n  finish();\n  tf.gu.disabled = true;\n }\n}\nfunction finish() {\n tf.a1.value = 'Guyana';\n tf.a1.disabled = true;\n d1.style.display = 'inline';\n return;\n}\nfunction answer() {\n v = tf.a1.value.trim();\n v = v.charAt(0).toUpperCase() + v.substring(1).toLowerCase();\n if (v == \"Guyana\" || v == \"Guiana\") return finish();\n isc = isCountry(v);\n m = isc ? \"No, it's not \" + v + \"!\" : v + \" is not a South American country.\";\n if (v == \"\") m = \"Take a guess!\";\n alert(m);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1268,
+  "category": "Music",
+  "image_url": "http://jewornotjew.com/img/people/j/janet_jagan.jpg",
+  "created_at": "2025-03-29T13:16:55+02:00",
+  "updated_at": "2025-03-29T13:16:55+02:00"
+}

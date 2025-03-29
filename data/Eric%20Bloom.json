@@ -1,0 +1,26 @@
+{
+  "name": "Eric Bloom",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3411",
+  "verdict": "Jew",
+  "description": "Gene Frenkle, the man behind \"more cowbell\", is not real.\n\nThat can't be true, is it? The man who was born in 1950 and died in 2000? The man who single-handedly introduced a new music trend? The man so famously portrayed by Will Ferrell in a biopic? The man who became one of the earliest Internet memes? The man whose contribution to \"(Don't Fear) The Reaper\" will forever stand the test of time?\n\nNot real.\n\nGene Frenkle was never a member of the Blue \ufffdyster Cult. At the time of the recording of \"(Don't Fear) The Reaper\", the band members were: Eric Bloom, Buck Dharma, Allen Lanier, Joe Bouchard, and Albert Bouchard. You will note that none of them are named Gene Frenkle.\n\nBut... more cowbell?\n\nOh, there is definitely cowbell in \"(Don't Fear) The Reaper\", but it's not exactly \"more\" as one seems to remember. Apparently, it was played by Albert Bouchard. Boy, must he be mad for Frenkle getting all the credit!\n\nStill... can we get a Jew Score for Gene Frenkle?\n\nConsidering he was physically modeled on Eric Bloom, the band's only Jewish member... we can do that!\n\ngene = false;\nfunction flip() {\ngene = !gene;\nif (gene) {\n memorize();\n setTitle('Gene Frenkle');\n setImage('gene_frenkle');\n setSubhead('1950 \u0026mdash; 2000');\n setRatings(4, 3, 5);\n} else {\n remember();\n}\n}",
+  "pros": null,
+  "cons": [
+    "idering he was physically modeled on Eric Bloom, the band's only Jewish member... we can do that!",
+    "gene = false;",
+    "function flip() {",
+    "gene = !gene;",
+    "if (gene) {",
+    "memorize();",
+    "setTitle('Gene Frenkle');",
+    "setImage('gene_frenkle');",
+    "setSubhead('1950 \u0026mdash; 2000');",
+    "setRatings(4, 3, 5);",
+    "} else {",
+    "remember();"
+  ],
+  "score": 3411,
+  "category": "Music",
+  "image_url": "http://jewornotjew.com/img/people/e/eric_bloom.jpg",
+  "created_at": "2025-03-29T13:17:50+02:00",
+  "updated_at": "2025-03-29T13:17:50+02:00"
+}

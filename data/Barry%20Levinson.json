@@ -1,0 +1,13 @@
+{
+  "name": "Barry Levinson",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1463",
+  "verdict": "Jew",
+  "description": "Select Jews from this list of Oscar-winning directors:\n\n\nGuesses Remaining\n15\n\n\nScore\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nanswer = new Array(1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, -1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1);\ngr = document.getElementById(\"gd\");\nsc = document.getElementById(\"sd\");\nvar guesses = 0;\nvar score = 0;\nrestart();\nfunction restart() {\n guesses = 15;\n score = 0;\n disable(false);\n draw();\n}\nfunction disable(d, c) {\n bs = document.getElementsByName(\"but\");\n for (i=0;i\u003cbs.length;i++) {\n  bs[i].disabled = d;\n  if (!d) {\n   bs[i].style.background = '#c0c0c0';\n   bs[i].style.textDecoration = 'none';\n  }\n }\n}\nfunction draw() {\n gr.innerHTML = ''+guesses;\n sc.innerHTML = ''+score;\n}\nfunction pick(b, i) {\n b.disabled = true;\n k = answer[i];\n j = (k == 1);\n if (k != -1) {\n  if (j) score = score + 1;\n  guesses = guesses - 1;\n } else {\n  guesses = 0;\n  score = 0;\n }\n draw();\n b.style.background = j ? 'green' : 'red';\n if (!j) b.style.textDecoration = 'line-through';\n if (guesses \u003c= 0) {\n  disable(true);\n  msg = 'Game Over. Your Score: ' + score + '.';\n  br = String.fromCharCode(10);\n  if (k == -1) msg = 'Are you meshuggenah? GAME OVER!';\n  else if (score == 15) msg += br + 'Great job!';\n  else if (score \u003e= 13) msg += br + 'Getting close...';\n  else if (score \u003e= 11) msg += br + 'Not bad...';\n  else if (score \u003e= 9) msg += br + 'Average...';\n  else if (score \u003e= 7) msg += br + 'Could be worse...';\n  else msg += br + 'Terrible!';\n  if (score == 15 || k == -1) {\n   alert(msg);\n  } else {\n   msg += ' Try Again?';\n   ok = confirm(msg);\n   if (ok) restart();\n  }\n }\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1463,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/b/barry_levinson.jpg",
+  "created_at": "2025-03-29T13:17:00+02:00",
+  "updated_at": "2025-03-29T13:17:00+02:00"
+}

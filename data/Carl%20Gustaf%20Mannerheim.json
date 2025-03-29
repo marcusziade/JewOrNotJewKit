@@ -1,0 +1,13 @@
+{
+  "name": "Carl Gustaf Mannerheim",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3194",
+  "verdict": "Not a Jew",
+  "description": "We apologize for the crude translation, but below is a piece of Russian propaganda... well, read away:\n\n\nRussia is not at war against Ukraine and it is not threatening it with war. Russia made a mutual aid and friendship pact with the Donetsk and Luhansk People's Republic.\n\nAccording to this pact, the Ukrainian people are granted complete independence, a significant increase in territory, and fulfillment of the cherished dream of the unification of the Little Russia region with their relatives, the Ukrainian people.\n\nIt is being carried out in close and friendly cooperation with the government of Russia and the Donetsk and Luhansk People's Republic, in a joint brotherly struggle of the Russian Army and the Ukrainian people's army to cleanse Ukraine  from the enemies of the Ukrainian people, war provocateurs, and the clique of Zelensky.\n\n\nWhere did we get this from? Well, these lies are spewed in pretty much every Russian publication, but this little piece is from Pravda... of 1939, only we substituted Ukraine for Finland. Here is the original.\n\nYep, back in 1939, Russia (well, the USSR) started a war (well, not a war!) with Finland under the pretenses that the Finnish people wanted reunification with their Russian \"brothers\". Sounds familiar, doesn't it? \n\nThe Mannerheim in question is Finnish military leader Carl Gustaf Mannerheim, who fought off the Soviets, despite being greatly outnumbered. (He later became the President of Finland... no, not Jewish.) Finland did secede territory, but the war caused incredibly heavily casualties to the Soviet army. (Yes, we know, Russia, it wasn't really a war!)\n\nHistory just keeps repeating itself, doesn't it?\n\nrep = new Array(\"The Soviet Union\", \"Finland\", \"The Soviet Union\", \"Finnish Democratic\", \"Finnish\", \"Karelia\", \"Finnish\", \"the USSR\", \"Finnish Democratic\", \"Red\", \"Finnish\", \"Finland\", \"Finnish\", \"Mannerheim\");\nfunction flip() {\n us = document.getElementsByName(\"u1\");\n for (i=0;i\u003crep.length;i++) us[i].innerHTML = rep[i];\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3194,
+  "category": "Politics",
+  "image_url": "http://jewornotjew.com/img/people/c/carl_gustaf_mannerheim.jpg",
+  "created_at": "2025-03-29T13:17:44+02:00",
+  "updated_at": "2025-03-29T13:17:44+02:00"
+}

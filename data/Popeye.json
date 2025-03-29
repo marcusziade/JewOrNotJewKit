@@ -1,0 +1,13 @@
+{
+  "name": "Popeye",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3456",
+  "verdict": "Not a Jew",
+  "description": "Years ago we profiled Olive Oyl, l'objet du d\ufffdsir of Popeye the Sailor Man. (It was so long ago, we can't even remember the verdict we gave to Olive! Apparently, Not a Jew.) Well, eagle-eyed readers have spotted a potential Jew in the Popeye universe... the man himself. (Who did you think, Bluto? As! If!)\n\nAs the tale goes, Popeye was based on a real-life sailor, Frank \"Rocky\" Fiegel. Just look at him, that's Popeye in human form! And guess what, Fiegel was Jewish!\n\nA bunch of mistakes here. Snopes has a takedown of the first part, explaining that the man pictured was not Fiegel at all, but rather a stoker nicknamed... well, \"Popeye\". Fiegel was 70 years at the time that photo was taken and looked liked this. Yes, that's the best picture available. Do notice the pipe.\n\nHowever, the real Fiegel was indeed an inspiration for Popeye creator E. C. Segar. It's just that Fiegel was not a landsman; just your ordinary Polish Catholic. So we'll have to go with that for the cartoon Popeye as well.\n\nWe wouldn't want that roided psycho anyway!\n\nfunction loadPic(x) {\n setImage(x == 0 ? 'p/popeye' : 'popeye'+x);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3456,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/p/popeye.jpg",
+  "created_at": "2025-03-29T13:17:51+02:00",
+  "updated_at": "2025-03-29T13:17:51+02:00"
+}

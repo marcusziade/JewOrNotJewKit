@@ -1,0 +1,13 @@
+{
+  "name": "Ceska Trebova",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3286",
+  "verdict": "Not a Jew",
+  "description": "Today, our journey takes us to the charming Czech town of Ceska Trebova. Situated in the valley of the Trebovka river, in the middle of the  Svitavy Hills, with a population of 15,000...\n\nWait! What the hell is THAT?!?!?!\n\nThat is Ceska Trebova's seal, which depicts... you know, we can't write this profile with this thing on the screen. Take it away, please!\n\nWhew. Much better. Picturesque Ceska Trebova. No, seriously, what the hell was that?!\n\nThat was a chicken with a man's head. A Jewish man's head? No, seriously, that's a medieval Jewish hat, isn't it?\n\nYep. That's a medieval Jewish hat. Now back to the lovely buildings, for G-d's sake!\n\nSo what gives? Nobody really knows. The seal started to appear in the 17th century, and there is no actual proof that the monster pictured is Jewish. A supposed legend talks about a lost seal that was found by a rooster in a garbage dump and saved a scribe from execution... That's neither here nor there.\n\nIn any case, in recent years Ceska Trebova updated its seal, modernizing it.\n\nThat's not much better!\n\nfunction loadPic(x) {\n setImage(x == 0 ? 'c/ceska_trebova' : 'ct/seal'+x);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3286,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/c/ceska_trebova.jpg",
+  "created_at": "2025-03-29T13:17:47+02:00",
+  "updated_at": "2025-03-29T13:17:47+02:00"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Lloyd Kaufman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2995",
+  "verdict": "Jew",
+  "description": "The early 90s might have been the golden age of Saturday morning television. Whether you preferred Ninja Turtles, Smurfs, X-Men, or Saved by the Bell (in the case of some people who write for this website, all of the above), you were covered. But there was another sub-genre of Saturday morning TV that is largely forgotten now: hit movies turned into animated series.\n\nThere was Back to the Future, The Karate Kid, Bill and Ted... even Beetlejuice. That last one might seem a head-scratcher, until we get to... Attack of the Killer Tomatoes and Toxic Crusaders.\n\n\nThe former is just not worth discussing. The latter was based on the Toxic Avenger, a campy, culty, rather violent film series with this guy as the title character. (They made him a tad friendlier for Saturday mornings.) The tagline? \"He was 98 lbs of solid nerd until he became... the first super-hero... from New Jersey!\" (As skinny nerds from New Jersey, we had to watch?)\n\nThe Toxic Avenger was the brainchild of Lloyd Kaufman, the founder of Troma Entertainment. His studio has produced over 1000 movies, mostly low-budget horror. The Avenger was Kaufman's most famous creation, a low-budget horror take on superhero movies. It spawned three sequels (and is now being rebooted with Peter Dinklage!), but it will be a long stretch to call it a hit... or anything remotely mainstream.\n\nSo how did the Toxic Avenger move from the B-roll to network Saturday mornings? We have no idea. As for the cartoon itself... well, it was no Ninja Turtles.\n\nc = document.getElementById(\"comic\");\nfunction showPic(x) {\n showDiv(c);\n c.src = 'img/other/toxic'+x+'.jpg';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 2995,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/l/lloyd_kaufman.jpg",
+  "created_at": "2025-03-29T13:17:39+02:00",
+  "updated_at": "2025-03-29T13:17:39+02:00"
+}

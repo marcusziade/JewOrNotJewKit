@@ -1,0 +1,13 @@
+{
+  "name": "Lars Ulrich",
+  "url": "http://jewornotjew.com/profile.jsp?ID=1840",
+  "verdict": "Barely a Jew",
+  "description": "Jewish men (and some women)!\n\nYou better sit down for this. We got some terrible, terrible news.\n\nThere is a Jewish baldness gene.\n\nWe'll let that sink in for a moment.\n\nYes, scientists proved it. You, Jewish men (and some women) are at a bigger risk of going bald just because of genetics. Don't believe it? Look around your Jewish friends. Are more of them sporting cleaner heads than the general populace? We thought so.\n\nJust take a look at this full, luscious head of hair. That's Metallica drummer Lars Ulrich in the 80s. And this is him\nnow. We know what you are saying: Ulrich is only a quarter Jewish. Perhaps the baldness comes from his Danish genes! Sure, it's possible. But we doubt it. Oh, we doubt it...\n\nSorry for the news, Jewish men (and some women).\n\nfunction loadPic(hair) {\nif (!hair) {\n setImage('ulrich');\n} else {\n setImage('l/lars_ulrich');\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 1840,
+  "category": "Science",
+  "image_url": "http://jewornotjew.com/img/people/l/lars_ulrich.jpg",
+  "created_at": "2025-03-29T13:17:09+02:00",
+  "updated_at": "2025-03-29T13:17:09+02:00"
+}

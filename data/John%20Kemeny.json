@@ -1,0 +1,13 @@
+{
+  "name": "John Kemeny",
+  "url": "http://jewornotjew.com/profile.jsp?ID=2205",
+  "verdict": "Jew",
+  "description": ".ba {\nfont-style: Courier;\nfont-weight: bold;\nbackground-color: blue;\ncolor: white;\npadding: 5px;\n}\n\n\n10 PRINT \"HELLO!\"\n20 PRINT \"HERE IS A LITTLE QUIZ:\"\n30 INPUT \"WHICH JEW CO-INVENTED BASIC? \"; A$\n40 IF (A$ = \"THOMAS KURTZ\") THEN GOTO 80\n50 IF (A$ = \"JOHN KEMENY\") THEN GOTO 100\n60 PRINT \"WRONG!\"\n70 GOTO 110\n80 PRINT \"KURTZ WAS NOT JEWISH.\"\n90 GOTO 30\n100 PRINT \"CORRECT! THANK YOU FOR PLAYING!\"\n110 END",
+  "pros": null,
+  "cons": null,
+  "score": 2205,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/j/john_kemeny.jpg",
+  "created_at": "2025-03-29T13:17:19+02:00",
+  "updated_at": "2025-03-29T13:17:19+02:00"
+}

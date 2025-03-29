@@ -1,0 +1,13 @@
+{
+  "name": "Richard Weisz",
+  "url": "http://jewornotjew.com/profile.jsp?ID=3495",
+  "verdict": "Jew",
+  "description": "Take a look at the Jew pictured here. It's highly unlikely you know who this Richard Weisz was. Can you guess his profession?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo, Richard Weisz was not a mathematician!\n\n\nNo, Richard Weisz was not a lawyer!\n\n\nNo, Richard Weisz was not a doctor!\n\n\nDUH! Lawyer or doctor? Not this Jew! If you look up \"early 20th century strongman\" in an encyclopedia, might as well slap this picture on it. He was a track and field athlete, rower, a national champion weightlifter, and most importantly, a wrestler. Weisz was the first ever Hungarian and the first ever Jew to win an Olympic wrestling medal, doing so in London in 1908.\n\n\nOh. He was also an engineer.\n\n\nOh. He was also a circus performer. Of course.\n\n\n\n\nt = document.getElementById(\"text\");\nfunction flip(x, b) {\nd = document.getElementById(\"pic\"+x);\nd.style.display = b ? 'inline' : 'none';\nt.style.display = !b ? 'inline' : 'none';\n}\nfunction answer(x) {\nfor (i=1;i\u003c=6;i++) {\n d = document.getElementById(\"ans\"+i);\n d.style.display = (x == i) ? 'inline' : 'none';\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 3495,
+  "category": "Sports",
+  "image_url": "http://jewornotjew.com/img/people/r/richard_weisz.jpg",
+  "created_at": "2025-03-29T13:17:52+02:00",
+  "updated_at": "2025-03-29T13:17:52+02:00"
+}
