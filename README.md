@@ -10,7 +10,7 @@ A Go SDK and database for [JewOrNotJew.com](http://jewornotjew.com). This projec
 
 ## Features
 
-- 🔍 **Smart Scraping**: Extracts names, verdicts, descriptions, pros, cons, categories, and images
+- 🔍 **Complete Scraping**: Extracts all 3,622 profiles with names, verdicts, descriptions, pros, cons, categories, and images
 - 💾 **Persistent Storage**: Saves data in both JSON files and SQLite database
 - 🌈 **Beautiful CLI**: Colorful terminal interface for browsing and searching profiles
 - 🚀 **REST API**: HTTP endpoints for integration with web and mobile apps
@@ -40,16 +40,16 @@ First, run the scraper to collect data from JewOrNotJew.com:
 go run cmd/scraper/main.go
 ```
 
+The scraper will:
+1. Download all 3,622 profile data from the website with a nice progress bar
+2. Save individual profiles as JSON files in the `data` directory
+3. Store all profiles in a SQLite database
+
 Options:
 - `-data-dir` - Directory to store scraped data (default: `./data`)
 - `-db-path` - Path to SQLite database (default: `./jewornotjew.db`)
 - `-base-url` - Base URL to scrape (default: `http://jewornotjew.com`)
 - `-load-only` - Only load data from disk, don't scrape
-
-The scraper will:
-1. Download profile data from the website
-2. Save individual profiles as JSON files in the `data` directory
-3. Store all profiles in a SQLite database
 
 ## Using the CLI
 
@@ -82,7 +82,7 @@ go run cmd/api/main.go
 
 Options:
 - `-db` - Path to SQLite database (default: `./jewornotjew.db`)
-- `-addr` - HTTP server address (default: `:8080`)
+- `-addr` - HTTP server address (default: `:8081`)
 
 ### API Endpoints
 
@@ -155,6 +155,25 @@ go build -o bin/api cmd/api/main.go
 ./bin/api
 ```
 
+## Project Structure
+
+```
+jewornotjew/
+├── cmd/                 # Command-line applications
+│   ├── api/             # REST API server
+│   ├── cli/             # Command-line interface
+│   └── scraper/         # Web scraper
+├── data/                # Scraped profile data (JSON files)
+├── pkg/                 # Reusable packages
+│   ├── api/             # API server implementation
+│   ├── client/          # Web scraping client
+│   ├── db/              # Database operations
+│   └── models/          # Data models
+├── bin/                 # Compiled binaries (not in repo)
+├── go.mod               # Go module definition
+└── README.md            # This file
+```
+
 ## License
 
 MIT
@@ -162,3 +181,7 @@ MIT
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Version History
+
+- **v1.0.0** - Initial release with complete scraping of all 3,622 profiles
