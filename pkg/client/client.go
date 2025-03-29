@@ -12,10 +12,13 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/marcusziade/jewornotjew/pkg/models"
+	"github.com/schollz/progressbar/v3"
 )
 
 // Client represents the JewOrNotJew API client
@@ -24,6 +27,7 @@ type Client struct {
 	httpClient *http.Client
 	dataDir    string
 	profiles   map[string]*models.Profile
+	mu         sync.Mutex // Mutex for thread safety
 }
 
 // NewClient creates a new JewOrNotJew client
@@ -81,33 +85,163 @@ func WithDataDir(dataDir string) Option {
 func (c *Client) ScrapeAll() error {
 	fmt.Println("Starting scrape operation...")
 	
-	// We'll skip trying to get profile IDs from the website since it seems unstable
-	// and go directly to using known IDs from the site
-	fmt.Println("Using known profile IDs from the site")
-	profileIDs := []int{585, 586, 587, 588, 589, 590, 43, 1}
+	// Try IDs from 1 to 10000 to ensure we get all 3622 profiles
+	maxID := 10000
+	// We know there are 3622 profiles total according to the site
+	totalProfiles := 3622 
+	fmt.Printf("Attempting to scrape all %d profiles from JewOrNotJew.com (IDs 1-%d)\n", totalProfiles, maxID)
 	
-	fmt.Printf("Found %d profile IDs to scrape\n", len(profileIDs))
+	// Create a semaphore to limit concurrency
+	concurrentRequests := 10
+	semaphore := make(chan struct{}, concurrentRequests)
+	var wg sync.WaitGroup
 	
-	// Scrape each profile
-	for _, id := range profileIDs {
-		profile, err := c.scrapeProfile(id)
-		if err != nil {
-			fmt.Printf("Error scraping profile %d: %v\n", id, err)
-			continue
-		}
+	// Use atomic operations for thread-safe counters
+	var successCounter int64
+	var failCounter int64
+	var skipCounter int64
+	
+	// Create progress bar with custom theme
+	bar := progressbar.NewOptions(totalProfiles,
+		progressbar.OptionEnableColorCodes(true),
+		progressbar.OptionShowBytes(false),
+		progressbar.OptionSetWidth(50),
+		progressbar.OptionSetDescription("[cyan]Scraping JewOrNotJew profiles[reset]"),
+		progressbar.OptionSetTheme(progressbar.Theme{
+			Saucer:        "[green]=[reset]",
+			SaucerHead:    "[green]>[reset]",
+			SaucerPadding: " ",
+			BarStart:      "[",
+			BarEnd:        "]",
+		}))
+	
+	// Create a channel for logging
+	logCh := make(chan string, 100)
+	
+	// Create a log file
+	logFile, err := os.Create(filepath.Join(c.dataDir, "scraper.log"))
+	if err == nil {
+		defer logFile.Close()
 		
-		if profile != nil {
-			fmt.Printf("Successfully scraped profile: %s\n", profile.Name)
-			c.profiles[profile.Name] = profile
-			
-			// Save profile to JSON
-			if err := c.saveProfileToJSON(profile); err != nil {
-				fmt.Printf("Error saving profile to JSON: %v\n", err)
+		// Start log writer
+		go func() {
+			for msg := range logCh {
+				logFile.WriteString(msg + "\n")
 			}
+		}()
+	}
+	
+	// Create a function for controlled logging (to file only)
+	log := func(msg string) {
+		select {
+		case logCh <- msg:
+			// Message sent to log channel
+		default:
+			// Channel is full, skip logging
 		}
 	}
 	
-	fmt.Printf("Scraping complete. Found %d profiles.\n", len(c.profiles))
+	// Manually call bar functions to update as needed
+	
+	// Start background goroutine to periodically update the progress bar
+	stopTicker := make(chan struct{})
+	go func() {
+		ticker := time.NewTicker(250 * time.Millisecond)
+		defer ticker.Stop()
+		
+		startTime := time.Now()
+		for {
+			select {
+			case <-ticker.C:
+				success := atomic.LoadInt64(&successCounter)
+				failed := atomic.LoadInt64(&failCounter)
+				skipped := atomic.LoadInt64(&skipCounter)
+				total := success + failed + skipped
+				
+				elapsed := time.Since(startTime).Seconds()
+				if elapsed > 0 {
+					rate := float64(total) / elapsed
+					eta := time.Duration(float64(totalProfiles-int(success)) / rate * float64(time.Second))
+					
+					bar.Describe(fmt.Sprintf("[cyan]Scraping profiles[reset] - [green]%d found[reset]/[red]%d failed[reset] (%.1f/sec | ETA: %s)",
+						success, failed, rate, eta.Round(time.Second)))
+					
+					bar.Set(int(success))
+				}
+			case <-stopTicker:
+				return
+			}
+		}
+	}()
+	
+	// Create rate limiter
+	throttle := time.Tick(10 * time.Millisecond)
+	
+	// Start the scraping process
+	for id := 1; id <= maxID; id++ {
+		// Stop if we've found all profiles (or more)
+		if atomic.LoadInt64(&successCounter) >= int64(totalProfiles) {
+			break
+		}
+		
+		// Rate limit
+		<-throttle
+		
+		// Acquire a semaphore slot
+		semaphore <- struct{}{}
+		wg.Add(1)
+		
+		go func(id int) {
+			// Release the semaphore and mark work done when the goroutine exits
+			defer func() { 
+				<-semaphore
+				wg.Done() 
+			}()
+			
+			profile, err := c.scrapeProfile(id)
+			if err != nil {
+				atomic.AddInt64(&failCounter, 1)
+				// Log error to file only
+				log(fmt.Sprintf("Error scraping ID %d: %v", id, err))
+				return
+			}
+			
+			if profile == nil || profile.Name == "" || profile.Name == fmt.Sprintf("Profile %d", id) {
+				atomic.AddInt64(&skipCounter, 1)
+				return
+			}
+			
+			// Success - we got a valid profile
+			atomic.AddInt64(&successCounter, 1)
+			log(fmt.Sprintf("Success: ID %d → %s", id, profile.Name))
+			
+			// Add to profiles map
+			c.mu.Lock()
+			c.profiles[profile.Name] = profile
+			c.mu.Unlock()
+			
+			// Save profile to JSON
+			if err := c.saveProfileToJSON(profile); err != nil {
+				log(fmt.Sprintf("Error saving %s: %v", profile.Name, err))
+			}
+		}(id)
+	}
+	
+	// Wait for all goroutines to finish
+	wg.Wait()
+	
+	// Stop the ticker
+	close(stopTicker)
+	// Close the log channel
+	close(logCh)
+	
+	// Complete the progress bar
+	bar.Finish()
+	
+	// Show final counts
+	fmt.Printf("\n✅ Scraping complete! Successfully scraped %d profiles\n", atomic.LoadInt64(&successCounter))
+	fmt.Printf("🗄️ Profiles saved to: %s\n", c.dataDir)
+	
 	return nil
 }
 
@@ -155,7 +289,8 @@ func (c *Client) getProfileIDs() ([]int, error) {
 // scrapeProfile scrapes a profile by ID
 func (c *Client) scrapeProfile(id int) (*models.Profile, error) {
 	profileURL := fmt.Sprintf("%s/profile.jsp?ID=%d", c.baseURL, id)
-	fmt.Printf("Scraping profile: %s\n", profileURL)
+	// Only print detailed info for every 100th profile to avoid log flooding
+	verbose := id%1000 == 0
 	
 	// Make HTTP request
 	resp, err := c.httpClient.Get(profileURL)
@@ -175,8 +310,11 @@ func (c *Client) scrapeProfile(id int) (*models.Profile, error) {
 		return nil, fmt.Errorf("failed to read response body: %w", err)
 	}
 	
-	// Print the first 1000 characters of the HTML for debugging
-	fmt.Printf("HTML snippet: %s\n", string(bodyContent[:min(1000, len(bodyContent))]))
+	// Print debug info only in verbose mode
+	if verbose && len(bodyContent) > 0 {
+		// Print the first 200 characters of the HTML for debugging (reduced from 1000)
+		fmt.Printf("HTML snippet for ID %d: %s...\n", id, string(bodyContent[:min(200, len(bodyContent))]))
+	}
 	
 	// Parse the HTML
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(bodyContent)))
@@ -209,6 +347,10 @@ func (c *Client) scrapeProfile(id int) (*models.Profile, error) {
 
 // parseProfile extracts profile data from HTML
 func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *models.Profile {
+	// Get ID from the URL to check if we should be verbose
+	id := int(profile.Score)
+	verbose := id%1000 == 0
+	
 	// Extract name from title
 	title := doc.Find("title").Text()
 	if title != "" {
@@ -218,7 +360,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			// Remove "Jew or Not Jew: " prefix if present
 			name = strings.TrimPrefix(name, "Jew or Not Jew: ")
 			profile.Name = name
-			fmt.Printf("Extracted name from title: %s\n", profile.Name)
+			if verbose {
+				fmt.Printf("Extracted name from title: %s\n", profile.Name)
+			}
 		}
 	}
 	
@@ -228,7 +372,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			name := strings.TrimSpace(s.Text())
 			if name != "" {
 				profile.Name = name
-				fmt.Printf("Extracted name from h1: %s\n", name)
+				if verbose {
+					fmt.Printf("Extracted name from h1: %s\n", name)
+				}
 			}
 		})
 	}
@@ -238,7 +384,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	// Try the meta description which often contains the verdict
 	metaDesc, exists := doc.Find("meta[name=description]").Attr("content")
 	if exists && metaDesc != "" {
-		fmt.Printf("Found meta description: %s\n", metaDesc)
+		if verbose {
+			fmt.Printf("Found meta description: %s\n", metaDesc)
+		}
 		// The meta description often follows the pattern "Is name Jewish?" or similar
 		// The verdict is usually at the end as a single word
 		metaDesc = strings.TrimSpace(metaDesc)
@@ -254,7 +402,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				} else if strings.Contains(lastWord, "Not") {
 					verdictText = "Not a Jew"
 				}
-				fmt.Printf("Extracted verdict from meta: %s\n", verdictText)
+				if verbose && verdictText != "" {
+					fmt.Printf("Extracted verdict from meta: %s\n", verdictText)
+				}
 			}
 		}
 	}
@@ -273,7 +423,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 					verdict := strings.TrimSpace(parts[1])
 					if verdict != "" {
 						verdictText = verdict
-						fmt.Printf("Extracted verdict from page: %s\n", verdictText)
+						if verbose {
+							fmt.Printf("Extracted verdict from page: %s\n", verdictText)
+						}
 					}
 				}
 			} else if strings.Contains(lcText, "verdict") && len(text) < 30 {
@@ -286,12 +438,16 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 					
 					if siblingText != "" && len(siblingText) < 30 {
 						verdictText = siblingText
-						fmt.Printf("Extracted verdict from sibling: %s\n", verdictText)
+						if verbose {
+							fmt.Printf("Extracted verdict from sibling: %s\n", verdictText)
+						}
 					}
 				}
 			} else if (lcText == "jew" || lcText == "not a jew" || lcText == "barely a jew") && len(text) < 30 {
 				verdictText = text
-				fmt.Printf("Found direct verdict text: %s\n", verdictText)
+				if verbose {
+					fmt.Printf("Found direct verdict text: %s\n", verdictText)
+				}
 			}
 		})
 	}
@@ -302,10 +458,14 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 		if exists && imageUrl != "" {
 			if strings.Contains(imageUrl, "verified_jew") {
 				verdictText = "Jew"
-				fmt.Printf("Inferred verdict from image: %s\n", verdictText)
+				if verbose {
+					fmt.Printf("Inferred verdict from image: %s\n", verdictText)
+				}
 			} else if strings.Contains(imageUrl, "not_a_jew") {
 				verdictText = "Not a Jew"
-				fmt.Printf("Inferred verdict from image: %s\n", verdictText)
+				if verbose {
+					fmt.Printf("Inferred verdict from image: %s\n", verdictText)
+				}
 			}
 		}
 	}
@@ -350,7 +510,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			
 			fullText = strings.TrimSpace(fullText)
 			profile.Description = fullText
-			fmt.Printf("Extracted full description from profileBody: %d chars\n", len(fullText))
+			if verbose {
+				fmt.Printf("Extracted full description from profileBody: %d chars\n", len(fullText))
+			}
 		}
 	}
 	
@@ -371,7 +533,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			   !strings.Contains(lowerText, "cons:") && 
 			   len(text) > 100 {
 				profile.Description = text
-				fmt.Printf("Extracted description from alternate source: %d chars\n", len(text))
+				if verbose {
+					fmt.Printf("Extracted description from alternate source: %d chars\n", len(text))
+				}
 				descFound = true
 			}
 		})
@@ -387,7 +551,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				metaDesc = strings.TrimSpace(metaDesc)
 			}
 			profile.Description = metaDesc
-			fmt.Printf("Using meta description as fallback: %s\n", metaDesc)
+			if verbose {
+				fmt.Printf("Using meta description as fallback: %s\n", metaDesc)
+			}
 		}
 	}
 	
@@ -411,7 +577,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 		
 		if len(largestText) > 100 {
 			profile.Description = largestText
-			fmt.Printf("Extracted description from largest table cell: %d chars\n", len(largestText))
+			if verbose {
+				fmt.Printf("Extracted description from largest table cell: %d chars\n", len(largestText))
+			}
 		}
 	}
 	
@@ -433,7 +601,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				// Filter out invalid entries
 				if pro != "" && len(pro) > 3 && !strings.Contains(strings.ToLower(pro), "cons:") {
 					profile.Pros = append(profile.Pros, pro)
-					fmt.Printf("Extracted pro from regex: %s\n", pro)
+					if verbose {
+						fmt.Printf("Extracted pro from regex: %s\n", pro)
+					}
 					prosFound = true
 				}
 			}
@@ -454,7 +624,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 						// Skip if HTML entities are found, suggesting invalid content
 						if !strings.Contains(con, "&#") && !strings.Contains(con, "&lt;") && !strings.Contains(con, "&gt;") && !strings.Contains(con, "<span") {
 							profile.Cons = append(profile.Cons, con)
-							fmt.Printf("Extracted con from regex: %s\n", con)
+							if verbose {
+								fmt.Printf("Extracted con from regex: %s\n", con)
+							}
 							consFound = true
 						}
 					}
@@ -488,7 +660,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 					pro = strings.TrimSpace(pro)
 					if pro != "" && len(pro) > 3 && !strings.Contains(strings.ToLower(pro), "cons") {
 						profile.Pros = append(profile.Pros, pro)
-						fmt.Printf("Extracted pro from DOM: %s\n", pro)
+						if verbose {
+							fmt.Printf("Extracted pro from DOM: %s\n", pro)
+						}
 						prosFound = true
 					}
 				}
@@ -514,7 +688,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 						// Skip if HTML entities are found, suggesting invalid content
 						if !strings.Contains(con, "&#") && !strings.Contains(con, "&lt;") && !strings.Contains(con, "&gt;") && !strings.Contains(con, "<span") {
 							profile.Cons = append(profile.Cons, con)
-							fmt.Printf("Extracted con from DOM: %s\n", con)
+							if verbose {
+								fmt.Printf("Extracted con from DOM: %s\n", con)
+							}
 							consFound = true
 						}
 					}
@@ -535,7 +711,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				// Likely a pro
 				if !contains(profile.Pros, text) {
 					profile.Pros = append(profile.Pros, text)
-					fmt.Printf("Extracted pro from list: %s\n", text)
+					if verbose {
+						fmt.Printf("Extracted pro from list: %s\n", text)
+					}
 				}
 			} else if strings.Contains(parentText, "cons") {
 				// Likely a con
@@ -546,7 +724,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				   !strings.Contains(text, "&gt;") && 
 				   !strings.Contains(text, "<span") {
 					profile.Cons = append(profile.Cons, text)
-					fmt.Printf("Extracted con from list: %s\n", text)
+					if verbose {
+						fmt.Printf("Extracted con from list: %s\n", text)
+					}
 				}
 			}
 		}
@@ -566,7 +746,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				
 				if category != "" {
 					profile.Category = category
-					fmt.Printf("Extracted category: %s\n", category)
+					if verbose {
+						fmt.Printf("Extracted category: %s\n", category)
+					}
 				}
 			}
 		} else if strings.HasPrefix(text, "Category") {
@@ -579,7 +761,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				
 				if category != "" {
 					profile.Category = category
-					fmt.Printf("Extracted category from alternate format: %s\n", category)
+					if verbose {
+						fmt.Printf("Extracted category from alternate format: %s\n", category)
+					}
 				}
 			}
 		}
@@ -598,7 +782,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 					"Art", "Literature", "Media", "Academia", "Military", "Fashion", "Technology", "Comedy", "Royalty", "Film", "Television"} {
 					if strings.Contains(strings.ToLower(keyword), strings.ToLower(cat)) {
 						profile.Category = cat
-						fmt.Printf("Inferred category from keywords: %s\n", cat)
+						if verbose {
+							fmt.Printf("Inferred category from keywords: %s\n", cat)
+						}
 						break
 					}
 				}
@@ -656,7 +842,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			for clue, category := range categoryClues {
 				if strings.Contains(lowerDesc, clue) {
 					profile.Category = category
-					fmt.Printf("Inferred category from description text: %s\n", category)
+					if verbose {
+						fmt.Printf("Inferred category from description text: %s\n", category)
+					}
 					break
 				}
 			}
@@ -677,7 +865,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 		} else {
 			profile.ImageURL = ogImage
 		}
-		fmt.Printf("Extracted image URL from meta: %s\n", profile.ImageURL)
+		if verbose {
+			fmt.Printf("Extracted image URL from meta: %s\n", profile.ImageURL)
+		}
 	}
 	
 	// If no og:image, check for image_src link
@@ -693,7 +883,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			} else {
 				profile.ImageURL = imageSrc
 			}
-			fmt.Printf("Extracted image URL from link: %s\n", profile.ImageURL)
+			if verbose {
+				fmt.Printf("Extracted image URL from link: %s\n", profile.ImageURL)
+			}
 		}
 	}
 	
@@ -718,7 +910,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 					} else {
 						profile.ImageURL = src
 					}
-					fmt.Printf("Extracted image URL from img tag: %s\n", profile.ImageURL)
+					if verbose {
+						fmt.Printf("Extracted image URL from img tag: %s\n", profile.ImageURL)
+					}
 				}
 			}
 		})
@@ -911,13 +1105,17 @@ func (c *Client) saveProfileToJSON(profile *models.Profile) error {
 	}
 	
 	jsonPath := filepath.Join(c.dataDir, safeName+".json")
-	fmt.Printf("Saving profile to %s\n", jsonPath)
-
+	
 	// Marshal profile to JSON
 	data, err := json.MarshalIndent(profile, "", "  ")
 	if err != nil {
 		return fmt.Errorf("failed to marshal profile: %w", err)
 	}
+
+	// File mutex to avoid concurrent writes to the same file
+	var fileMu sync.Mutex
+	fileMu.Lock()
+	defer fileMu.Unlock()
 
 	// Write JSON to file
 	if err := os.WriteFile(jsonPath, data, 0644); err != nil {
