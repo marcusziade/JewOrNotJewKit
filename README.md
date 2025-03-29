@@ -10,7 +10,7 @@ A Go SDK and database for [JewOrNotJew.com](http://jewornotjew.com). This projec
 
 ## Features
 
-- 🔍 **Complete Scraping**: Extracts all 3,622 profiles with names, verdicts, descriptions, pros, cons, categories, and images
+- 🔍 **Complete Scraping**: Extracts all profiles with names, verdicts, descriptions, pros, cons, categories, and images
 - 🔄 **Incremental Updates**: Smart scraping that only downloads new or changed profiles
 - 💾 **Persistent Storage**: Saves data in both JSON files and SQLite database
 - 🌈 **Beautiful CLI**: Colorful terminal interface for browsing and searching profiles
@@ -42,7 +42,7 @@ go run cmd/scraper/main.go
 ```
 
 The scraper will:
-1. Download all 3,622 profile data from the website with a nice progress bar
+1. Download all profile data from the website with a nice progress bar
 2. Save individual profiles as JSON files in the `data` directory
 3. Store all profiles in a SQLite database
 
@@ -199,12 +199,3 @@ jewornotjew/
 ## License
 
 MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Version History
-
-- **v1.0.1** - Added incremental scraping to avoid re-downloading unchanged profiles
-- **v1.0.0** - Initial release with complete scraping of all 3,622 profiles
