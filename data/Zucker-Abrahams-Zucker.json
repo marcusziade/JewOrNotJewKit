@@ -1,0 +1,13 @@
+{
+  "name": "Zucker-Abrahams-Zucker",
+  "url": "http://jewornotjew.com/profile.jsp?ID=377",
+  "verdict": "Jew",
+  "description": "Are you a David, a Jim, or a Jerry?\n\nFind out by taking our short quiz:\n\n\nAre you obsessed with Davy Crockett?\nYes\nNo\nDo you practice nepotism at your job?\nYes\nNo\nDo you believe in ghosts?\nYes\nNo\nWas George W. Bush a great president?\nYes\nNo\nDo you like movies about gladiators?\nYes\nNo\n\n\n\n\n\n\n \n\n\nfunction loadPic(x) {\nsetImage('zaz/zaz'+(x+1));\n}\nfunction getRadio(r) {\nfor (i=0;i\u003cr.length;i++) if (r[i].checked) return r[i].value;\nreturn null;\n}\nfunction process() {\nf = document.zf;\nv1 = getRadio(f.q1);\nv2 = getRadio(f.q2);\nv3 = getRadio(f.q3);\nv4 = getRadio(f.q4);\nv5 = getRadio(f.q5);\nif (v1==null || v2==null || v3==null || v4==null || v5==null) { alert(\"Please answer all questions\"); return; }\nd = document.getElementById(\"result\");\nwho = new Array(\"David Zucker\", \"Jim Abrahams\", \"Jerry Zucker\");\nc = new Array(0, 0, 0, 0);\nif (v1 == 1) { c[0] += 5; c[2] += 1; }\nif (v2 == 1) { c[0] += 4; c[2] += 4; }\nif (v2 == 0) { c[1] += 5; }\nif (v3 == 1) { c[2] += 3; }\nif (v4 == 1) { c[0] += 10; }\nif (v4 == 0) { c[0] -= 2; }\nq = 0;\nif (c[1] \u003e c[0]) q = 1;\nif (c[2] \u003e c[1] \u0026\u0026 c[2] \u003e c[0]) q = 2;\ntxt = \"You are \"+ who[q] + \"!\";\nd.innerHTML = txt;\nloadPic(q);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 377,
+  "category": "Politics",
+  "image_url": "http://jewornotjew.com/img/people/z/zucker-abrahams-zucker.jpg",
+  "created_at": "2025-03-29T12:52:51+02:00",
+  "updated_at": "2025-03-29T12:52:51+02:00"
+}

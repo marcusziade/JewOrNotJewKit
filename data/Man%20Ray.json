@@ -1,0 +1,13 @@
+{
+  "name": "Man Ray",
+  "url": "http://jewornotjew.com/profile.jsp?ID=475",
+  "verdict": "Jew",
+  "description": "Are you Jewish?\n\nAre you blessed cursed with a long, difficult, tongue-twisting name?\n\nIf so, try our Make-Your-Name-Hip Generator*!\n\n\n\n\n Male\n Female\n\n\n\n\n\n\n\n*Hipness not guaranteed\n\nfunction generate() {\nv = document.rf.one.value;\nv = v.toLowerCase();\nmale = document.rf.sex[0].checked;\nnames = v.split(' ');\nif (names == null || names.length != 2) {\nalert(\"Please enter first and last name, separated by a space\");\nreturn;\n}\nfo = names[0]; lo = names[1];\nif (!isAlpha(fo) || !isAlpha(lo)) {\nalert(\"Please use A-Z only\");\nreturn;\n}\nfn = '', ln = '';\nfor (i=0;i\u003cfo.length;i++) {\nc = fo.charAt(i);\nif (fn.length == 0 \u0026\u0026 male == isConsonant(c)) fn = c.toUpperCase();\nif (fn.length == 1 \u0026\u0026 male == isVowel(c)) fn += c;\nif (fn.length == 2 \u0026\u0026 male == isConsonant(c)) { fn += c; break; }\n}\nif (male) {\nif (fn.length == 1) fn += 'an';\nif (fn.length == 2) fn += 'n';\n} else {\nif (fn.length == 1) fn += 'na';\nif (fn.length == 2) fn += 'a';\n}\nfc = false;\nfor (i=0;i\u003clo.length;i++) {\nc = lo.charAt(i);\nif (ln.length == 0) {fc = isConsonant(c); ln = c.toUpperCase(); }\nif (ln.length == 1 \u0026\u0026 ((isVowel(c) \u0026\u0026 fc) || (isConsonant(c) \u0026\u0026 !fc))) { ln += c; break; }\n}\nif (ln.length == 1 \u0026\u0026 fc) ln += 'a';\nif (ln.length == 1 \u0026\u0026 !fc) ln += 'y';\nfor (i=0;i\u003clo.length;i++) {\nc = lo.charAt(lo.length-i-1);\nif ((fc \u0026\u0026 isConsonant(c)) || (!fc \u0026\u0026 isVowel(c))) { ln += c; break; }\n}\ndocument.rf.two.value = fn + ' ' + ln;\n}\nfunction isAlpha(str) {\nvar re = /[^a-zA-Z]/g\nreturn !(re.test(str));\n}\nfunction isVowel(c) {\nreturn (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');\n}\nfunction isConsonant(c) {\nreturn !isVowel(c);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 475,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/m/man_ray.jpg",
+  "created_at": "2025-03-29T12:52:54+02:00",
+  "updated_at": "2025-03-29T12:52:54+02:00"
+}

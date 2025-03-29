@@ -1,0 +1,13 @@
+{
+  "name": "Donald Trump",
+  "url": "http://jewornotjew.com/profile.jsp?ID=752",
+  "verdict": "Not a Jew",
+  "description": "Donald Trump is clearly not Jewish (although he uses Ivanka's family as an antisemitic shield), so let's turn this profile over to our friends at BaldOrNotBald.com...\n\nDonald Trump might be a detestable scumbag, a treacherous nincompoop, a fascist hate-monger, a jiggling tub of orange marmalade... we're not here to debate any of that. We're here to debate one and one thing: is Donald Trump bald?\n\nTo the naked eye, he does not seem to be. After all, that head is covered by a thick layer of what appears to be hair. \"Appears\" is the key word here.\n\nLet a gust of wind blow, and that supposed hair shows what is hidden underneath: a ginormous bald spot that would make Gorbachev proud. And yet, he goes to great lengths to cover it up with a weave as fraudulent as the man himself. (But we digress...)\n\nSigh. If only his lies were limited to his baldness.\n\ndocument.getElementById(\"ratPic3\").addEventListener(\"click\", function() { setImage('tkp'); }, false);\nfunction flip() {\n rating.innerHTML = '5';\n rat1.innerHTML = '4';\n rat2.innerHTML = '1';\n rat3.innerHTML = '0';\n ratTitle.innerHTML = 'Bald Score:';\n banner.src = 'img/other/bald/bald-title.gif';\n ratPic1.src = 'img/other/bald/bald-4.jpg';\n ratPic2.src = 'img/other/bald/bald-1.jpg';\n ratPic3.src = 'img/other/bald/bald-0.jpg';\n setVerdict('Sadly, Bald');\n a = document.getElementsByTagName(\"a\");\n for (i=0;i\u003ca.length;i++) {\n  a[i].style.color = '#b29e73';\n }\n b = document.getElementsByClassName(\"border\");\n for (i=0;i\u003cb.length;i++) {\n  b[i].style.backgroundColor = '#f2deb3';\n }\n}",
+  "pros": null,
+  "cons": null,
+  "score": 752,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/d/donald_trump.jpg",
+  "created_at": "2025-03-29T12:53:01+02:00",
+  "updated_at": "2025-03-29T12:53:01+02:00"
+}

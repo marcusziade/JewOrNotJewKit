@@ -1,0 +1,13 @@
+{
+  "name": "Jeff and Stan Van Gundy",
+  "url": "http://jewornotjew.com/profile.jsp?ID=747",
+  "verdict": "Not a Jew",
+  "description": "Sometimes, our work is done for us.\n\nYou see, last year, we got a few requests to profile NBA coaches Stan and Jeff Van Gundy (Stan is currently in charge of the Magic, Jeff was with the Knicks and Rockets and now announces games on TV). To us, it was pretty clear that the brothers were not Jewish (the majority of their pre-NBA life spans various Catholic and Jesuit institutions), but there were enough requests to warrant a profile (even if two had to share one).\n\nBut let's just say that it wasn't a priority. Sure, we could reminisce about the lasting NBA moment of the 90s, Jeff hanging on to Alonzo Mourning's leg, or point out how Stan looks like Ron Jeremy, or... well, it wasn't a priority.\n\nAnd then, Stan's Magic played on Christmas. And lost. And Stan complained that by having to work on Christmas, he didn't have a chance to spend the holiday with his family. And trust us, no Jew would ever complain about working on Christmas, especially if one's multi-million-dollar contract called one to do so. So no one out there ever wondered again if the Van Gundys were Jewish.\n\nSo why did we even bother with this profile?\n\nfunction loadPic(x) {\nt = 'jeff';\nif (x == 1) t = 'stan';\nsetImage(t+'_van_gundy');\n}",
+  "pros": null,
+  "cons": null,
+  "score": 747,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/j/jeff_and_stan_van_gundy.jpg",
+  "created_at": "2025-03-29T12:53:00+02:00",
+  "updated_at": "2025-03-29T12:53:00+02:00"
+}

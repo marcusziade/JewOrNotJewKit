@@ -1,0 +1,18 @@
+{
+  "name": "Jeffrey Tambor",
+  "url": "http://jewornotjew.com/profile.jsp?ID=520",
+  "verdict": "Jew",
+  "description": "On the left is actor Jeffrey Tambor, who you might know from \"The Larry Sanders Show\" (Hey Now!) or from \"Arrested Development\". On the right is Dr. Phil McGraw, who brainwashes poor housewives.\n\nWait, are we sure? Tambor on the left and McGraw on the right? Let's double-check. Yep, that's correct. Here, let's switch the Tambor picture to a more current one.\n\nMuch better. OK, where were we?\n\nLet's see... Jeffrey Tambor, Jew... Dr. Phil, not a Jew... No, something is not right. Let's switch back.\n\nLet's be honest; we miss the glorious mustache. Tambor now appears clean-shaven or sporting a beard, which seems to coincide with Dr. Phil coming into the limelight.\n\nSo here's what we're gonna do. Bye, bye, Dr. Phil. Geez, if it was only so simple in real life.\n\nSo yeah, where were we? Jeffrey Tambor, Jewish. Raised in a conservative household. Done and done.\n\nA mustache is a terrible thing to waste, isn't it?\n\nfunction loadPic() { setImage('tambor'); }\nfunction loadOrig() {setImage('j/jeffrey_tambor'); }\nfunction whack() { jackass.style.display='none'}",
+  "pros": null,
+  "cons": [
+    "ervative household. Done and done.",
+    "function loadPic() { setImage('tambor'); }",
+    "function loadOrig() {setImage('j/jeffrey_tambor'); }",
+    "function whack() { jackass.style.display='none'}"
+  ],
+  "score": 520,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/j/jeffrey_tambor.jpg",
+  "created_at": "2025-03-29T12:52:55+02:00",
+  "updated_at": "2025-03-29T12:52:55+02:00"
+}

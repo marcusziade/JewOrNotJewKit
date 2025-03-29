@@ -1,0 +1,13 @@
+{
+  "name": "Don Francisco",
+  "url": "http://jewornotjew.com/profile.jsp?ID=302",
+  "verdict": "Jew",
+  "description": "Like most high schools, ours had only a few languages you could take. French, Italian, Japanese and...\n\n...sorry, Spanish. Our high school taught Spanish and that's what we decided to take. And we can proudly say that after four years...\n\nSorry, four years, we speak little to none of it. We can say hello and goodbye. Can count to about 12. And that's about it.\n\nBut we still love to watch Chilean Jew Don Francisco's crowning achievement, Sabado Gigante. Why?...\n\ner, Why?...\n\nUmmm\n\nWhat were we talking about again?\n\n\n\n\n\ninterval = 800;\nk = 1;\nd = document.getElementById(\"chica\");\nsetTimeout('swap()', interval);\nfunction swap() {\nk++;\nif (k \u003e 5) k = 1;\nd.src = 'img/other/df/sabado'+k+'.jpg';\nif (interval \u003e 200 \u0026\u0026 k == 1) interval -= 100;\nsetTimeout('swap()', interval);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 302,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/d/don_francisco.jpg",
+  "created_at": "2025-03-29T12:52:49+02:00",
+  "updated_at": "2025-03-29T12:52:49+02:00"
+}

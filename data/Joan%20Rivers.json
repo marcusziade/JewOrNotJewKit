@@ -1,0 +1,13 @@
+{
+  "name": "Joan Rivers",
+  "url": "http://jewornotjew.com/profile.jsp?ID=470",
+  "verdict": "Jew",
+  "description": "Everyone knows Joan is Jewish. Also, everyone knows that her face is has been assembled and re-assembled multiple times. So, here is your chance to put it back together!\n\n\ndiv.game { border: 1px solid black; background: white; }\ndiv.tile { border: 1px solid gray; }\ndiv.empty { -moz-opacity: .2; border: 2px solid lightgreen; }\n\n\n\n\n \n\n\n\n \n\n\n\n\n\nInstructions: click on a tile to move it to the empty square. Once the puzzle is solved, the border will turn green.\n\n\n\n\n\n\nGame code by Jesse Ruderman\n\nfunction okConfirm() { return confirm(\"Give up? We don't blame you. Assembling Joan's face is not that easy.\"); }",
+  "pros": null,
+  "cons": null,
+  "score": 470,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/j/joan_rivers.jpg",
+  "created_at": "2025-03-29T12:52:53+02:00",
+  "updated_at": "2025-03-29T12:52:53+02:00"
+}

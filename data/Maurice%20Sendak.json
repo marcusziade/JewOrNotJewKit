@@ -1,0 +1,13 @@
+{
+  "name": "Maurice Sendak",
+  "url": "http://jewornotjew.com/profile.jsp?ID=969",
+  "verdict": "Jew",
+  "description": "We were doing some toy shopping the other day, when we ran into a likeness of one of the Wild Things from Maurice Sendak's classic, \"Where the Wild Things Are\". The bearded, horned creature came with a name: Moishe.\n\nWe immediately did a double take. Moishe? Surely, someone is just having a laugh. For if we remember correctly, the Wild Thing are nameless in the book. But we had to check.\n\nAnd what do you know? Sendak gave them all names — not for the book itself, but for the opera adaptation — and the names stuck. And he named the Wild Things after his uncles and aunts, so we have Moishe, Tzippy, Aaron, Emile, and Bernard. (In the movie version, Moishe became the androgynously goyishe Carol. Meh.)\n\nNot only that, but Sendak drew the creatures to resemble his uncles and aunts, whose visits he dreaded. (A cacophony of overbearing relatives? One can emphasize.) So not only is Sendak Jewish himself, so are his Wild Things.\n\nWho knew that toy shopping could be so enlightening?\n\nwild = false;\nfunction loadPic() {\nwild = !wild;\nif (wild) {\n memorize();\n setImage('the_wild_things');\n setTitle('The Wild Things');\n subHead.style.color = 'white';\n} else {\n remember();\n subHead.style.color = 'black';\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 969,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/m/maurice_sendak.jpg",
+  "created_at": "2025-03-29T12:53:06+02:00",
+  "updated_at": "2025-03-29T12:53:06+02:00"
+}

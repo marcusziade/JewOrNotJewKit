@@ -1,0 +1,13 @@
+{
+  "name": "Suze Orman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=904",
+  "verdict": "Jew",
+  "description": "Since Suze Orman, the host of the eponymous \"The Suze Orman Show\", is Jewish, we at JONJ have come up with a complex matrix to help all your financial planning needs. Welcome to...\n\n\n\n\n\nPlease fill the following questionnaire:\n\n\nI am\n\n(select)\nmale\nfemale\n\n\nMy age is\n\n(select)\nunder 20\n20 - 29\n30 - 39\n40 - 49\n50 - 59\n60 - 69\n70 +\n\n\nMy annual salary is\n\n(select)\nless than $25,000\n$25,000 - $50,000\n$50,000 - $75,000\n$75,000 - $100,000\nmore than $100,000\n\n\nI would like to buy\n\nfor\n\n(select)\nmyself\nmy spouse\nmy child\nmy mother\n\n\n\n\n\n\n\n\nf = document.ff;\nd = document.getElementById(\"d1\");\nshowText('');\nfunction doSelect() {\nshowText('');\nerr = null;\nif (f.s1.value == 0) err = 'gender';\nelse if (f.s2.value == 0) err = 'age';\nelse if (f.s3.value == 0) err = 'salary';\nelse if (f.s4.value == '' || f.s4.value == '(enter)') err = 'what you want to buy';\nelse if (f.s5.value == 0) err = 'recipient';\nif (err != null) { alert('Please select '+err); return; }\nw = 'boyfriend';\nif (f.s1.value == 2) w = 'girlfriend';\nt = \"Are you meshuggenah, \"+w+\"? You are DENIED!\";\nif (f.s5.value == 4) t = \"Oh, you're such a mensch, \"+w+\"! You are APPROVED!\";\nshowText('Thinking...');\nsetTimeout('showText(t)', 500);\n}\nfunction showText(t) {\nd.innerHTML = t;\n}",
+  "pros": null,
+  "cons": null,
+  "score": 904,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/s/suze_orman.jpg",
+  "created_at": "2025-03-29T12:53:04+02:00",
+  "updated_at": "2025-03-29T12:53:04+02:00"
+}

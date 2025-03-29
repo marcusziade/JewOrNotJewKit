@@ -1,0 +1,13 @@
+{
+  "name": "Theo Epstein",
+  "url": "http://jewornotjew.com/profile.jsp?ID=339",
+  "verdict": "Jew",
+  "description": "Please select the Red Sox fate:\n\n\n\n\nThe Boston Red Sox\n\n(select)\nwin\ndo not win\n\nthe 2008 World Series:\n\n\n\nWell, once again, the stupid Red Sox have won the stupid World Series. \n\nYes, yes congrats all around to Mr. Theo Epstein the Jewish genius who took the loser Sox and made them (*sigh*) winners. You're the greatest ever, blah blah blah blah blah.\n\nThe best team in Major League Baseball. One of the smartest men in the sport. Even brings in the best Jewish players. Like that makes Theo Epstein special.\n\nOK, it probably does. Well good for Mr. Smart Aleck. He's proved his superiority once again. We bow to his unfettered genius and look forward to many more baseball victories for his glorious Boston club.\n\nWhatever, the Red Sox still suck.\n\n\nHa, ha!\n\nA hearty congratulations to the Boston Red Sox who have once again managed to take one of the best teams in Major League Baseball and just lose, lose, lose, lose, lose.\n\nSure Theo Epstein is one of the smartest men in baseball. And he's built a talented franchise from top to bottom. He even brings in great Jewish players like Kevin Youkilis and Gabe Kapler. You know what all that means?\n\nDiddly. Guess what Mr. Smart Aleck. It doesn't matter how hard you work or how much more intelligent you are than everyone else. You and your Red Sox are losers and you always will be. So get used to it.\n\nUnless you're lucky enough to get hired by the New York Yankees.\n\n\n\ndocument.ff.s1.selectedIndex = 0;\nfunction doSelect(x) {\nhide1 = d1; hide2 = d2; show = d0;\nif (x == 1) {show = d1; hide1 = d0;}\nif (x == 2) {show = d2; hide2 = d0;}\nhide1.style.display = 'none';\nhide2.style.display = 'none';\nshow.style.display = 'inline';\n}\nfunction selectBox() {\nv = document.ff.s1.value;\ndoSelect(v);\n}",
+  "pros": null,
+  "cons": null,
+  "score": 339,
+  "category": "Sports",
+  "image_url": "http://jewornotjew.com/img/people/t/theo_epstein.jpg",
+  "created_at": "2025-03-29T12:52:50+02:00",
+  "updated_at": "2025-03-29T12:52:50+02:00"
+}

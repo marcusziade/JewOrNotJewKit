@@ -1,0 +1,13 @@
+{
+  "name": "Henry Heimlich",
+  "url": "http://jewornotjew.com/profile.jsp?ID=387",
+  "verdict": "Jew",
+  "description": "The Adventures of Aaron SchtikmanEpisode 1: The Chokening\n\n\n\n\n\n\n\ncap = new Array(\n\"Aaron goes on a blind date with his mother's best friend's niece, Louise Blumengold.\",\n\"Aaron and Louise share a nice meal at Shlocky's, the best Kosher restaurant in town.\",\n\"Aaron is so excited about meeting Louise, he just talks and talks and talks and talks...\",\n\"Suddenly, a chicken leg gets stuck in Aaron's throat. He's choking!\",\n\"Thankfully, Louise knows the Heimlich Maneuver! Aaron is saved! They go on to have an eventful evening.\",\n\"Don't forget, goyim! Even though the Heimlich Maneuver was invented by a Jew, it's still treif-friendly!\u003cp align=center\u003e\u003cb\u003eThe End\u003c/b\u003e\u003c/p\u003e\");\n\nk = 0;\np = document.getElementById(\"pic\");\nt = document.getElementById(\"txt\");\nb = document.getElementById(\"but\");\n\nfunction swap() {\n k++;\n p.src = 'img/other/hh/heimlich'+k+'.gif';\n txt.innerHTML = cap[k-1];\n if (k \u003e= 6) {\n  b.value = 'Restart';\n  k = 0;\n } else b.value = 'Next';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 387,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/h/henry_heimlich.jpg",
+  "created_at": "2025-03-29T12:52:51+02:00",
+  "updated_at": "2025-03-29T12:52:51+02:00"
+}

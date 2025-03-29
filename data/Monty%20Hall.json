@@ -1,0 +1,13 @@
+{
+  "name": "Monty Hall",
+  "url": "http://jewornotjew.com/profile.jsp?ID=407",
+  "verdict": "Jew",
+  "description": "It's time to play...\n\n\n \n\n\n\n \n\n\n\nFor our first deal, I'm giving you this bag of coins. It could have one coin, it could have ten coins, it could have one thousand coins. You can keep the bag, or trade it for the box that Carol is holding.\n\n\n\n \n\n\nAnd let's look in the box for your prize... It's a brand new microwave oven! Perfect for heating up that brisket for the whole family to share! Microwave oven... From Litton.\n\n\n\n\n\n\nYou can keep the microwave oven, or trade it in for a chance to pick one of the three doors. What will it be?\n\n\n\n \n\n\nSo, you've traded in your microwave oven for a chance at one of these doors. What would you like, Door #1, Door #2, or Door #3?\n\n\n\nPlease select a door by clicking on it.\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nlast = opening;\nt = document.getElementById(\"et\");\ng = document.getElementById(\"ei\");\nfunction advance(x) {\ns = null;\nif (x==0) s = opening;\nif (x==1) s = choice;\nif (x==2) { s = end; txt = \"And let's look in your bag of coins... Thirty chocolate coins, perfect for Hanukkah. Only the best from Chaim's Chocolates!\"; img = \"coins\"; }\nif (x==3) s = microwave;\nif (x==4) s = choice2;\nif (x==5) { s = end; txt = \"Enjoy your microwave oven! From Litton.\"; img = \"microwave\"; }\nif (x==6) s = doors;\nif (x==7) { s = end; txt = \"You've selected Door #1... A trip to my home town, lovely Winnipeg, Manitoba. Winnipeg... it's warmer than you think!\"; img = \"winnipeg\"; }\nif (x==8) { s = end; txt = \"You've selected Door #2... Your very own goat! Did you know that goat meat is kosher?\"; img = \"goat\"; }\nif (x==9) { s = end; txt = \"You've selected Door #3... The modern classic living room set from Bamberger's! Hand crafted from only the finest llama hair, it comes with a couch, love seat, hutch, and that wicker coffee table that will bring the whole room together! Perfect for Shabbat dinner or even Pesach!\"; img = \"room\"; }\nif (last != null) hideDiv(last);\nif (s != null) showDiv(s);\nif (s == end) { t.innerHTML = txt + \" Thank you for playing!\"; g.src = 'img/other/lmad/'+img+'.jpg'; }\nlast = s;\n}\nfunction door(x) {advance(x+6); }",
+  "pros": null,
+  "cons": null,
+  "score": 407,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/m/monty_hall.jpg",
+  "created_at": "2025-03-29T12:52:52+02:00",
+  "updated_at": "2025-03-29T12:52:52+02:00"
+}

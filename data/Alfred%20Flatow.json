@@ -1,0 +1,13 @@
+{
+  "name": "Alfred Flatow",
+  "url": "http://jewornotjew.com/profile.jsp?ID=723",
+  "verdict": "Jew",
+  "description": "It's time for JONJ trivia!... Who was the first Jew to win an Olympic medal?\n\n\n \n\n\n\nCorrect! Well, that wasn't so hard, was it? On April 9, 1896, at the inaugural modern Olympics, cousins Alfred and Gustav Flatow helped their country to two gymnastics golds: in team horizontal and parallel bars. Alfred also added an individual silver on the horizontal. A day later, he became the first Jewish individual Olympic champion with a gold on parallels.\n\nBoy, the Flatows really were bar masters! (They did not participate in the rope climb. Yes, they gave out medals for rope climb. There were style points. No, we're not making this up.)\n\nNow, for a harder question... what country did the Flatows represent?\n\n \n\n\n\n\nCorrect! Not exactly expected, is it?\n\n\n\n\ntries = 0;\nb1 = document.tf.a1;\nb2 = document.tf.a2;\nfunction answer1() {\nv = b1.value.toLowerCase().trim();\nif (v == \"flatow\" || v == \"alfred flatow\" || v == \"gustav flatow\") {\nb1.disabled = true;\nd1.style.display=\"inline\";\ntries = 0;\n} else {\nif (v != \"\") tries++;\nm = \"Wrong!\";\nif (tries == 2) m = \"Try again!\";\nif (tries \u003e= 3) m = \"Come on, his name is right there!\";\nif (v == \"\") m = \"Take a guess!\";\nalert(m);\nb1.focus();\n}\n}\nfunction answer2() {\nv = b2.value.toLowerCase().trim();\nif (v == \"germany\") {\nb2.disabled = true;\nd2.style.display=\"inline\";\n} else {\nif (v != \"\") tries++;\nm = \"Wrong!\";\nif (tries == 2) m = \"Try again!\";\nif (tries \u003e= 3) m = \"Hint: the country is not exactly known for embracing Jews.\";\nif (v == \"\") m = \"Take a guess!\";\nif (v == \"austria\") m = \"Close...\";\nif (v == \"prussia\") m = \"Very close...\";\nif (v == \"england\" || v == \"uk\" || v == \"great britain\") m = \"More continental.\";\nif (v == \"france\") m = \"Go east just a bit.\";\nif (v == \"poland\") m = \"In 1896, Poland was divided between Russia and Germany.\";\nif (v == \"russia\") m = \"The country you're looking for is not exactly known for embracing Jews either.\";\nif (v == \"usa\") m = \"Think European.\";\nalert(m);\nb2.focus();\n}\n}",
+  "pros": null,
+  "cons": null,
+  "score": 723,
+  "category": "",
+  "image_url": "http://jewornotjew.com/img/people/a/alfred_flatow.jpg",
+  "created_at": "2025-03-29T12:53:00+02:00",
+  "updated_at": "2025-03-29T12:53:00+02:00"
+}

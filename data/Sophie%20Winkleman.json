@@ -1,0 +1,13 @@
+{
+  "name": "Sophie Winkleman",
+  "url": "http://jewornotjew.com/profile.jsp?ID=826",
+  "verdict": "Barely a Jew",
+  "description": "Sophie Winkleman. Little-known British actress, or...\n\n\n\n\n\nfunction viewTree() {\nwindow.open (\"img/other/royal_tree.jpg\",\n\"RoyalTree\",\"width=810,height=680\"); \n}",
+  "pros": null,
+  "cons": null,
+  "score": 826,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/s/sophie_winkleman.jpg",
+  "created_at": "2025-03-29T12:53:02+02:00",
+  "updated_at": "2025-03-29T12:53:02+02:00"
+}

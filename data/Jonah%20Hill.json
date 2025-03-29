@@ -1,0 +1,13 @@
+{
+  "name": "Jonah Hill",
+  "url": "http://jewornotjew.com/profile.jsp?ID=289",
+  "verdict": "Jew",
+  "description": "Choose Your Own Adventure With JONJ!\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncount = 0;\nage = new Array(1, 5, 10, 15, 20)\neve = new Array(\"Your mom bakes a huge birthday cake.\", \"Your parents take you do McDonald's.\", \"Your kickball teammates are having a pizza party.\", \"Your high school girlfriend dumps you.\", \"Judd Apatow invites you to a barbecue.\");\nop1 = new Array(\"Eat the whole cake\", \"Eat five happy meals and cry until you get a sixth\", \"Eat ten slices; take a break, eat ten more\", \"Eat a tub of ice cream\", \"Drink 15 beers and eat 20 cheeseburgers\");\nop2 = new Array(\"Take a slice\", \"Ask your parents to get sushi instead\", \"Have a salad\", \"Punch your fist through a wall\", \"Listen to what he has to say\");\nfin = new Array(\"You grow up to be a doctor!\", \"You grow up to be a lawyer.\", \"You grow up to be an accountant.\", \"You grow up to be an insurance salesman.\", \"You become a major movie star. Unbelievable, isn't it?\");\ndea = document.getElementById(\"death\");\nadvance();\nfor (i=1;i\u003c=6;i++) {\njive = new Image;\njive.src = img(i);\n}\nfunction advance() {\ndisplay('eveDiv', 'Age ' + age[count] + ': '+ eve[count]);\nff.b1.value = op1[count];\nff.b2.value = op2[count];\ncount++;\n}\nfunction choose(x) {\nif (x == 1 \u0026\u0026 count == 5) {\ndisplay('eveDiv', 'You DIE from a heart attack!');\ndea.src = img(6);\nhideBlock('butDiv');\nshowBlock('endDiv');\n} else if (x == 1) {\nadvance();\n} else if (x == 2) {\ndisplay('eveDiv', fin[count-1]);\ndea.src = img(count);\nhideBlock('butDiv');\nshowBlock('endDiv');\n} else if (x == 3) {\ncount = 0;\nhideBlock('endDiv');\nshowBlock('butDiv');\nadvance();\n}\n}\nfunction img(x) {\nreturn 'img/other/jh/jonah'+x+'.jpg';\n}\nfunction display(f, s) {\nspa = document.getElementById(f);\nif (spa != null) spa.innerHTML = s;\n}\nfunction showBlock(n) {\nv = eval(n);\nv.style.display = 'inline';\n}\nfunction hideBlock(n) {\nv = eval(n);\nv.style.display = 'none';\n}",
+  "pros": null,
+  "cons": null,
+  "score": 289,
+  "category": "Entertainment",
+  "image_url": "http://jewornotjew.com/img/people/j/jonah_hill.jpg",
+  "created_at": "2025-03-29T12:52:49+02:00",
+  "updated_at": "2025-03-29T12:52:49+02:00"
+}
