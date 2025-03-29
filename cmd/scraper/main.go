@@ -19,6 +19,7 @@ func main() {
 	dbPath := flag.String("db-path", "./jewornotjew.db", "Path to SQLite database")
 	baseURL := flag.String("base-url", "http://jewornotjew.com", "Base URL to scrape")
 	loadOnly := flag.Bool("load-only", false, "Only load data from disk, don't scrape")
+	incremental := flag.Bool("incremental", true, "Incremental mode: only scrape new or changed profiles")
 	flag.Parse()
 
 	// Create data directory if it doesn't exist
@@ -42,8 +43,12 @@ func main() {
 			log.Fatalf("Failed to load profiles from disk: %v", err)
 		}
 	} else {
-		fmt.Println("Scraping profiles...")
-		if err := c.ScrapeAll(); err != nil {
+		if *incremental {
+			fmt.Println("Scraping profiles in incremental mode...")
+		} else {
+			fmt.Println("Scraping all profiles from scratch...")
+		}
+		if err := c.ScrapeAll(*incremental); err != nil {
 			log.Fatalf("Failed to scrape profiles: %v", err)
 		}
 	}

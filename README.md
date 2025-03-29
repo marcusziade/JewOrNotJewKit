@@ -50,6 +50,23 @@ Options:
 - `-db-path` - Path to SQLite database (default: `./jewornotjew.db`)
 - `-base-url` - Base URL to scrape (default: `http://jewornotjew.com`)
 - `-load-only` - Only load data from disk, don't scrape
+- `-incremental` - Incremental mode: only scrape new or changed profiles (default: `true`)
+
+### Incremental Scraping
+
+By default, the scraper runs in incremental mode, which:
+- Loads existing profiles from the data directory
+- Only saves new profiles or updates changed ones
+- Skips profiles that haven't changed
+- Shows detailed statistics about new/updated/skipped profiles
+
+This makes it efficient to run the scraper regularly to get newly added profiles without re-downloading everything.
+
+To force a complete re-scrape of all profiles, run:
+
+```bash
+go run cmd/scraper/main.go -incremental=false
+```
 
 ## Using the CLI
 

@@ -50,7 +50,7 @@ func NewClient(options ...Option) (*Client, error) {
 	}
 
 	// Create data directory if it doesn't exist
-	if err := os.MkdirAll(c.dataDir, 0755); err != nil {
+	if err := os.MkdirAll(c.dataDir, 0755); err \!= nil {
 		return nil, fmt.Errorf("failed to create data directory: %w", err)
 	}
 
@@ -82,14 +82,23 @@ func WithDataDir(dataDir string) Option {
 }
 
 // ScrapeAll scrapes all profiles from the website
-func (c *Client) ScrapeAll() error {
+func (c *Client) ScrapeAll(incrementalMode bool) error {
 	fmt.Println("Starting scrape operation...")
+	
+	// Load existing profiles from disk if in incremental mode
+	if incrementalMode {
+		fmt.Println("🔄 Incremental mode: Loading existing profiles from disk first...")
+		if err := c.LoadFromDisk(); err \!= nil {
+			fmt.Printf("⚠️ Warning: Failed to load profiles from disk: %v\n", err)
+		}
+		fmt.Printf("📊 Found %d existing profiles\n", len(c.profiles))
+	}
 	
 	// Try IDs from 1 to 10000 to ensure we get all 3622 profiles
 	maxID := 10000
 	// We know there are 3622 profiles total according to the site
 	totalProfiles := 3622 
-	fmt.Printf("Attempting to scrape all %d profiles from JewOrNotJew.com (IDs 1-%d)\n", totalProfiles, maxID)
+	fmt.Printf("Attempting to scrape profiles from JewOrNotJew.com (IDs 1-%d)\n", maxID)
 	
 	// Create a semaphore to limit concurrency
 	concurrentRequests := 10
@@ -101,25 +110,17 @@ func (c *Client) ScrapeAll() error {
 	var failCounter int64
 	var skipCounter int64
 	
-	// Create progress bar with custom theme
-	bar := progressbar.NewOptions(totalProfiles,
-		progressbar.OptionEnableColorCodes(true),
-		progressbar.OptionShowBytes(false),
-		progressbar.OptionSetWidth(50),
-		progressbar.OptionSetDescription("[cyan]Scraping JewOrNotJew profiles[reset]"),
-		progressbar.OptionSetTheme(progressbar.Theme{
-			Saucer:        "[green]=[reset]",
-			SaucerHead:    "[green]>[reset]",
-			SaucerPadding: " ",
-			BarStart:      "[",
-			BarEnd:        "]",
-		}))
-	
+	// Create counters for stats
+	var newCounter int64
+	var updatedCounter int64
+	var skippedCounter int64
+
 	// Create a channel for logging
 	logCh := make(chan string, 100)
 	
-	// Create a log file
-	logFile, err := os.Create(filepath.Join(c.dataDir, "scraper.log"))
+	// Create a log file with timestamp
+	timestamp := time.Now().Format("20060102-150405")
+	logFile, err := os.Create(filepath.Join(c.dataDir, fmt.Sprintf("scraper-%s.log", timestamp)))
 	if err == nil {
 		defer logFile.Close()
 		
@@ -141,7 +142,19 @@ func (c *Client) ScrapeAll() error {
 		}
 	}
 	
-	// Manually call bar functions to update as needed
+	// Create progress bar with custom theme
+	bar := progressbar.NewOptions(totalProfiles,
+		progressbar.OptionEnableColorCodes(true),
+		progressbar.OptionShowBytes(false),
+		progressbar.OptionSetWidth(50),
+		progressbar.OptionSetDescription("[cyan]Scraping JewOrNotJew profiles[reset]"),
+		progressbar.OptionSetTheme(progressbar.Theme{
+			Saucer:        "[green]=[reset]",
+			SaucerHead:    "[green]>[reset]",
+			SaucerPadding: " ",
+			BarStart:      "[",
+			BarEnd:        "]",
+		}))
 	
 	// Start background goroutine to periodically update the progress bar
 	stopTicker := make(chan struct{})
@@ -158,13 +171,18 @@ func (c *Client) ScrapeAll() error {
 				skipped := atomic.LoadInt64(&skipCounter)
 				total := success + failed + skipped
 				
+				// Get stats for incremental scraping
+				new := atomic.LoadInt64(&newCounter)
+				updated := atomic.LoadInt64(&updatedCounter)
+				skippedNoChange := atomic.LoadInt64(&skippedCounter)
+				
 				elapsed := time.Since(startTime).Seconds()
 				if elapsed > 0 {
 					rate := float64(total) / elapsed
 					eta := time.Duration(float64(totalProfiles-int(success)) / rate * float64(time.Second))
 					
-					bar.Describe(fmt.Sprintf("[cyan]Scraping profiles[reset] - [green]%d found[reset]/[red]%d failed[reset] (%.1f/sec | ETA: %s)",
-						success, failed, rate, eta.Round(time.Second)))
+					bar.Describe(fmt.Sprintf("[cyan]Scraping profiles[reset] - [green]%d found[reset]/[red]%d failed[reset] ([green]%d new[reset]/[cyan]%d updated[reset]/[yellow]%d skipped[reset]) (%.1f/sec | ETA: %s)",
+						success, failed, new, updated, skippedNoChange, rate, eta.Round(time.Second)))
 					
 					bar.Set(int(success))
 				}
@@ -199,7 +217,7 @@ func (c *Client) ScrapeAll() error {
 			}()
 			
 			profile, err := c.scrapeProfile(id)
-			if err != nil {
+			if err \!= nil {
 				atomic.AddInt64(&failCounter, 1)
 				// Log error to file only
 				log(fmt.Sprintf("Error scraping ID %d: %v", id, err))
@@ -213,16 +231,49 @@ func (c *Client) ScrapeAll() error {
 			
 			// Success - we got a valid profile
 			atomic.AddInt64(&successCounter, 1)
-			log(fmt.Sprintf("Success: ID %d → %s", id, profile.Name))
 			
-			// Add to profiles map
+			// Check if profile already exists
 			c.mu.Lock()
-			c.profiles[profile.Name] = profile
-			c.mu.Unlock()
+			existingProfile, exists := c.profiles[profile.Name]
 			
-			// Save profile to JSON
-			if err := c.saveProfileToJSON(profile); err != nil {
-				log(fmt.Sprintf("Error saving %s: %v", profile.Name, err))
+			if \!exists {
+				// New profile
+				c.profiles[profile.Name] = profile
+				c.mu.Unlock()
+				
+				atomic.AddInt64(&newCounter, 1)
+				log(fmt.Sprintf("✅ NEW: ID %d → %s", id, profile.Name))
+				
+				// Save profile to JSON
+				if err := c.saveProfileToJSON(profile); err \!= nil {
+					log(fmt.Sprintf("Error saving %s: %v", profile.Name, err))
+				}
+			} else {
+				// Check if profile needs update (compare basic fields)
+				if existingProfile.Verdict \!= profile.Verdict || 
+				   existingProfile.Description \!= profile.Description || 
+				   len(existingProfile.Pros) \!= len(profile.Pros) || 
+				   len(existingProfile.Cons) \!= len(profile.Cons) {
+					
+					// Update the profile
+					profile.CreatedAt = existingProfile.CreatedAt // Preserve original creation date
+					profile.UpdatedAt = time.Now().Format(time.RFC3339) // Set new update date
+					c.profiles[profile.Name] = profile
+					c.mu.Unlock()
+					
+					atomic.AddInt64(&updatedCounter, 1)
+					log(fmt.Sprintf("🔄 UPDATED: ID %d → %s", id, profile.Name))
+					
+					// Save updated profile to JSON
+					if err := c.saveProfileToJSON(profile); err \!= nil {
+						log(fmt.Sprintf("Error saving updated %s: %v", profile.Name, err))
+					}
+				} else {
+					// Profile exists and hasn't changed
+					c.mu.Unlock()
+					atomic.AddInt64(&skippedCounter, 1)
+					log(fmt.Sprintf("⏭️ SKIPPED: ID %d → %s (no changes)", id, profile.Name))
+				}
 			}
 		}(id)
 	}
@@ -239,7 +290,12 @@ func (c *Client) ScrapeAll() error {
 	bar.Finish()
 	
 	// Show final counts
-	fmt.Printf("\n✅ Scraping complete! Successfully scraped %d profiles\n", atomic.LoadInt64(&successCounter))
+	fmt.Printf("\n✅ Scraping complete\! Successfully processed %d profiles\n", atomic.LoadInt64(&successCounter))
+	fmt.Printf("📊 Stats: [green]%d new[reset] / [cyan]%d updated[reset] / [yellow]%d skipped[reset] / [red]%d failed[reset]\n", 
+		atomic.LoadInt64(&newCounter), 
+		atomic.LoadInt64(&updatedCounter), 
+		atomic.LoadInt64(&skippedCounter), 
+		atomic.LoadInt64(&failCounter))
 	fmt.Printf("🗄️ Profiles saved to: %s\n", c.dataDir)
 	
 	return nil
@@ -249,19 +305,19 @@ func (c *Client) ScrapeAll() error {
 func (c *Client) getProfileIDs() ([]int, error) {
 	// Make direct HTTP request
 	resp, err := c.httpClient.Get(c.baseURL)
-	if err != nil {
+	if err \!= nil {
 		return nil, fmt.Errorf("failed to retrieve homepage: %w", err)
 	}
 	defer resp.Body.Close()
 	
 	// Check response status
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode \!= http.StatusOK {
 		return nil, fmt.Errorf("received non-200 response: %d", resp.StatusCode)
 	}
 	
 	// Read the response body
 	body, err := io.ReadAll(resp.Body)
-	if err != nil {
+	if err \!= nil {
 		return nil, fmt.Errorf("failed to read response body: %w", err)
 	}
 	
@@ -276,7 +332,7 @@ func (c *Client) getProfileIDs() ([]int, error) {
 		if len(match) >= 2 {
 			idStr := string(match[1])
 			id, err := strconv.Atoi(idStr)
-			if err == nil && !idMap[id] {
+			if err == nil && \!idMap[id] {
 				idMap[id] = true
 				profileIDs = append(profileIDs, id)
 			}
@@ -294,19 +350,19 @@ func (c *Client) scrapeProfile(id int) (*models.Profile, error) {
 	
 	// Make HTTP request
 	resp, err := c.httpClient.Get(profileURL)
-	if err != nil {
+	if err \!= nil {
 		return nil, fmt.Errorf("failed to retrieve profile: %w", err)
 	}
 	defer resp.Body.Close()
 	
 	// Check response status
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode \!= http.StatusOK {
 		return nil, fmt.Errorf("received non-200 response: %d", resp.StatusCode)
 	}
 	
 	// Read the body content
 	bodyContent, err := io.ReadAll(resp.Body)
-	if err != nil {
+	if err \!= nil {
 		return nil, fmt.Errorf("failed to read response body: %w", err)
 	}
 	
@@ -318,7 +374,7 @@ func (c *Client) scrapeProfile(id int) (*models.Profile, error) {
 	
 	// Parse the HTML
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(bodyContent)))
-	if err != nil {
+	if err \!= nil {
 		return nil, fmt.Errorf("failed to parse HTML: %w", err)
 	}
 	
@@ -353,7 +409,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	
 	// Extract name from title
 	title := doc.Find("title").Text()
-	if title != "" {
+	if title \!= "" {
 		parts := strings.Split(title, " - ")
 		if len(parts) > 0 {
 			name := strings.TrimSpace(parts[0])
@@ -370,7 +426,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	if profile.Name == "" {
 		doc.Find("h1").Each(func(i int, s *goquery.Selection) {
 			name := strings.TrimSpace(s.Text())
-			if name != "" {
+			if name \!= "" {
 				profile.Name = name
 				if verbose {
 					fmt.Printf("Extracted name from h1: %s\n", name)
@@ -383,7 +439,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	verdictText := ""
 	// Try the meta description which often contains the verdict
 	metaDesc, exists := doc.Find("meta[name=description]").Attr("content")
-	if exists && metaDesc != "" {
+	if exists && metaDesc \!= "" {
 		if verbose {
 			fmt.Printf("Found meta description: %s\n", metaDesc)
 		}
@@ -402,7 +458,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				} else if strings.Contains(lastWord, "Not") {
 					verdictText = "Not a Jew"
 				}
-				if verbose && verdictText != "" {
+				if verbose && verdictText \!= "" {
 					fmt.Printf("Extracted verdict from meta: %s\n", verdictText)
 				}
 			}
@@ -421,7 +477,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				parts := strings.SplitN(text, ":", 2)
 				if len(parts) > 1 {
 					verdict := strings.TrimSpace(parts[1])
-					if verdict != "" {
+					if verdict \!= "" {
 						verdictText = verdict
 						if verbose {
 							fmt.Printf("Extracted verdict from page: %s\n", verdictText)
@@ -436,7 +492,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 					siblingText = strings.Replace(siblingText, text, "", 1)
 					siblingText = strings.TrimSpace(siblingText)
 					
-					if siblingText != "" && len(siblingText) < 30 {
+					if siblingText \!= "" && len(siblingText) < 30 {
 						verdictText = siblingText
 						if verbose {
 							fmt.Printf("Extracted verdict from sibling: %s\n", verdictText)
@@ -455,7 +511,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	// If still no verdict found, infer it from the image if possible
 	if verdictText == "" {
 		imageUrl, exists := doc.Find("img[src*='img/']").Attr("src")
-		if exists && imageUrl != "" {
+		if exists && imageUrl \!= "" {
 			if strings.Contains(imageUrl, "verified_jew") {
 				verdictText = "Jew"
 				if verbose {
@@ -470,7 +526,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 		}
 	}
 	
-	if verdictText != "" {
+	if verdictText \!= "" {
 		profile.Verdict = verdictText
 	}
 	
@@ -528,9 +584,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			text := strings.TrimSpace(s.Text())
 			lowerText := strings.ToLower(text)
 			
-			if !strings.Contains(lowerText, "verdict:") && 
-			   !strings.Contains(lowerText, "pros:") && 
-			   !strings.Contains(lowerText, "cons:") && 
+			if \!strings.Contains(lowerText, "verdict:") && 
+			   \!strings.Contains(lowerText, "pros:") && 
+			   \!strings.Contains(lowerText, "cons:") && 
 			   len(text) > 100 {
 				profile.Description = text
 				if verbose {
@@ -544,7 +600,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	// If still no substantial description found, try the meta description as a last resort
 	if profile.Description == "" || len(profile.Description) < 30 {
 		metaDesc, exists := doc.Find("meta[name=description]").Attr("content")
-		if exists && metaDesc != "" && len(metaDesc) > 10 {
+		if exists && metaDesc \!= "" && len(metaDesc) > 10 {
 			// Skip the "JewOrNotJew.com: " prefix if present
 			if strings.HasPrefix(metaDesc, "JewOrNotJew.com:") {
 				metaDesc = strings.TrimPrefix(metaDesc, "JewOrNotJew.com:")
@@ -567,9 +623,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			lcText := strings.ToLower(text)
 			
 			// Skip sections that are clearly not the main description
-			if !strings.Contains(lcText, "verdict:") && 
-			   !strings.Contains(lcText, "pros:") && 
-			   !strings.Contains(lcText, "cons:") && 
+			if \!strings.Contains(lcText, "verdict:") && 
+			   \!strings.Contains(lcText, "pros:") && 
+			   \!strings.Contains(lcText, "cons:") && 
 			   len(text) > len(largestText) {
 				largestText = text
 			}
@@ -599,7 +655,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			for _, pro := range pros {
 				pro = strings.TrimSpace(pro)
 				// Filter out invalid entries
-				if pro != "" && len(pro) > 3 && !strings.Contains(strings.ToLower(pro), "cons:") {
+				if pro \!= "" && len(pro) > 3 && \!strings.Contains(strings.ToLower(pro), "cons:") {
 					profile.Pros = append(profile.Pros, pro)
 					if verbose {
 						fmt.Printf("Extracted pro from regex: %s\n", pro)
@@ -620,9 +676,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				for _, con := range cons {
 					con = strings.TrimSpace(con)
 					// Filter out invalid entries and fragments
-					if con != "" && len(con) > 10 && !strings.Contains(con, "idered") {
+					if con \!= "" && len(con) > 10 && \!strings.Contains(con, "idered") {
 						// Skip if HTML entities are found, suggesting invalid content
-						if !strings.Contains(con, "&#") && !strings.Contains(con, "&lt;") && !strings.Contains(con, "&gt;") && !strings.Contains(con, "<span") {
+						if \!strings.Contains(con, "&#") && \!strings.Contains(con, "&lt;") && \!strings.Contains(con, "&gt;") && \!strings.Contains(con, "<span") {
 							profile.Cons = append(profile.Cons, con)
 							if verbose {
 								fmt.Printf("Extracted con from regex: %s\n", con)
@@ -636,14 +692,14 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	}
 	
 	// If regex didn't find anything, try DOM-based extraction
-	if !prosFound || !consFound {
+	if \!prosFound || \!consFound {
 		// Try to find specific pros/cons sections
 		doc.Find("div, td, span, p, font").Each(func(i int, s *goquery.Selection) {
 			text := strings.TrimSpace(s.Text())
 			lowerText := strings.ToLower(text)
 			
 			// Look for pros section
-			if !prosFound && (strings.Contains(lowerText, "pros:") || strings.HasPrefix(lowerText, "pros")) {
+			if \!prosFound && (strings.Contains(lowerText, "pros:") || strings.HasPrefix(lowerText, "pros")) {
 				// Extract pros
 				parts := strings.SplitN(text, ":", 2)
 				var prosList string
@@ -658,7 +714,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				pros := splitByBullets(prosList)
 				for _, pro := range pros {
 					pro = strings.TrimSpace(pro)
-					if pro != "" && len(pro) > 3 && !strings.Contains(strings.ToLower(pro), "cons") {
+					if pro \!= "" && len(pro) > 3 && \!strings.Contains(strings.ToLower(pro), "cons") {
 						profile.Pros = append(profile.Pros, pro)
 						if verbose {
 							fmt.Printf("Extracted pro from DOM: %s\n", pro)
@@ -669,7 +725,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			}
 			
 			// Look for cons section
-			if !consFound && (strings.Contains(lowerText, "cons:") || strings.HasPrefix(lowerText, "cons")) {
+			if \!consFound && (strings.Contains(lowerText, "cons:") || strings.HasPrefix(lowerText, "cons")) {
 				// Extract cons
 				parts := strings.SplitN(text, ":", 2)
 				var consList string
@@ -684,9 +740,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				cons := splitByBullets(consList)
 				for _, con := range cons {
 					con = strings.TrimSpace(con)
-					if con != "" && len(con) > 3 {
+					if con \!= "" && len(con) > 3 {
 						// Skip if HTML entities are found, suggesting invalid content
-						if !strings.Contains(con, "&#") && !strings.Contains(con, "&lt;") && !strings.Contains(con, "&gt;") && !strings.Contains(con, "<span") {
+						if \!strings.Contains(con, "&#") && \!strings.Contains(con, "&lt;") && \!strings.Contains(con, "&gt;") && \!strings.Contains(con, "<span") {
 							profile.Cons = append(profile.Cons, con)
 							if verbose {
 								fmt.Printf("Extracted con from DOM: %s\n", con)
@@ -702,14 +758,14 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	// Also look for list items as possible pros/cons
 	doc.Find("li, ul li").Each(func(i int, s *goquery.Selection) {
 		text := strings.TrimSpace(s.Text())
-		if text != "" && len(text) > 3 {
+		if text \!= "" && len(text) > 3 {
 			// Try to determine if this is a pro or con based on context
 			parent := s.ParentsFiltered("div, td, ul").First()
 			parentText := strings.ToLower(parent.Text())
 			
-			if strings.Contains(parentText, "pros") && !strings.Contains(strings.ToLower(text), "cons:") {
+			if strings.Contains(parentText, "pros") && \!strings.Contains(strings.ToLower(text), "cons:") {
 				// Likely a pro
-				if !contains(profile.Pros, text) {
+				if \!contains(profile.Pros, text) {
 					profile.Pros = append(profile.Pros, text)
 					if verbose {
 						fmt.Printf("Extracted pro from list: %s\n", text)
@@ -718,11 +774,11 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 			} else if strings.Contains(parentText, "cons") {
 				// Likely a con
 				// Skip if HTML entities are found, suggesting invalid content
-				if !contains(profile.Cons, text) && 
-				   !strings.Contains(text, "&#") && 
-				   !strings.Contains(text, "&lt;") && 
-				   !strings.Contains(text, "&gt;") && 
-				   !strings.Contains(text, "<span") {
+				if \!contains(profile.Cons, text) && 
+				   \!strings.Contains(text, "&#") && 
+				   \!strings.Contains(text, "&lt;") && 
+				   \!strings.Contains(text, "&gt;") && 
+				   \!strings.Contains(text, "<span") {
 					profile.Cons = append(profile.Cons, text)
 					if verbose {
 						fmt.Printf("Extracted con from list: %s\n", text)
@@ -744,7 +800,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				category = cleanHTML(category)
 				category = strings.Trim(category, ".")
 				
-				if category != "" {
+				if category \!= "" {
 					profile.Category = category
 					if verbose {
 						fmt.Printf("Extracted category: %s\n", category)
@@ -759,7 +815,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 				category = cleanHTML(category)
 				category = strings.Trim(category, ".")
 				
-				if category != "" {
+				if category \!= "" {
 					profile.Category = category
 					if verbose {
 						fmt.Printf("Extracted category from alternate format: %s\n", category)
@@ -773,7 +829,7 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	if profile.Category == "" {
 		// First try keywords meta tag
 		keywords, exists := doc.Find("meta[name=keywords]").Attr("content")
-		if exists && keywords != "" {
+		if exists && keywords \!= "" {
 			keywordsList := strings.Split(keywords, ",")
 			for _, keyword := range keywordsList {
 				keyword = strings.TrimSpace(keyword)
@@ -788,14 +844,14 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 						break
 					}
 				}
-				if profile.Category != "" {
+				if profile.Category \!= "" {
 					break
 				}
 			}
 		}
 		
 		// If still no category, try description text for clues
-		if profile.Category == "" && profile.Description != "" {
+		if profile.Category == "" && profile.Description \!= "" {
 			lowerDesc := strings.ToLower(profile.Description)
 			// Common category indicators in text
 			categoryClues := map[string]string{
@@ -855,9 +911,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	
 	// First check for og:image or similar meta tags
 	ogImage, exists := doc.Find("meta[property='og:image']").Attr("content")
-	if exists && ogImage != "" {
-		if !strings.HasPrefix(ogImage, "http") {
-			if !strings.HasPrefix(ogImage, "/") {
+	if exists && ogImage \!= "" {
+		if \!strings.HasPrefix(ogImage, "http") {
+			if \!strings.HasPrefix(ogImage, "/") {
 				profile.ImageURL = c.baseURL + "/" + ogImage
 			} else {
 				profile.ImageURL = c.baseURL + ogImage
@@ -873,9 +929,9 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	// If no og:image, check for image_src link
 	if profile.ImageURL == "" {
 		imageSrc, exists := doc.Find("link[rel='image_src']").Attr("href")
-		if exists && imageSrc != "" {
-			if !strings.HasPrefix(imageSrc, "http") {
-				if !strings.HasPrefix(imageSrc, "/") {
+		if exists && imageSrc \!= "" {
+			if \!strings.HasPrefix(imageSrc, "http") {
+				if \!strings.HasPrefix(imageSrc, "/") {
 					profile.ImageURL = c.baseURL + "/" + imageSrc
 				} else {
 					profile.ImageURL = c.baseURL + imageSrc
@@ -892,16 +948,16 @@ func (c *Client) parseProfile(doc *goquery.Document, profile *models.Profile) *m
 	// If still no image, look for img tags
 	if profile.ImageURL == "" {
 		doc.Find("img").Each(func(i int, s *goquery.Selection) {
-			if profile.ImageURL != "" {
+			if profile.ImageURL \!= "" {
 				return // Already found an image
 			}
 			
-			if src, exists := s.Attr("src"); exists && src != "" {
+			if src, exists := s.Attr("src"); exists && src \!= "" {
 				// Check if it's a profile image
 				if strings.Contains(strings.ToLower(src), "people") || 
 				   strings.Contains(strings.ToLower(src), "img") || 
 				   strings.Contains(strings.ToLower(src), "images") {
-					if !strings.HasPrefix(src, "http") {
+					if \!strings.HasPrefix(src, "http") {
 						if strings.HasPrefix(src, "/") {
 							profile.ImageURL = c.baseURL + src
 						} else {
@@ -983,7 +1039,7 @@ func splitByBullets(text string) []string {
 			parts := strings.Split(text, bullet)
 			for _, part := range parts {
 				part = strings.TrimSpace(part)
-				if part != "" {
+				if part \!= "" {
 					items = append(items, part)
 				}
 			}
@@ -992,7 +1048,7 @@ func splitByBullets(text string) []string {
 	}
 	
 	// If no bullets found, try splitting by newlines with better handling
-	if !hasBullets && strings.Contains(text, "\n") {
+	if \!hasBullets && strings.Contains(text, "\n") {
 		lines := strings.Split(text, "\n")
 		for _, line := range lines {
 			line = strings.TrimSpace(line)
@@ -1005,7 +1061,7 @@ func splitByBullets(text string) []string {
 			}
 			
 			// Only add non-empty lines
-			if line != "" && len(line) > 2 {
+			if line \!= "" && len(line) > 2 {
 				items = append(items, line)
 			}
 		}
@@ -1019,7 +1075,7 @@ func splitByBullets(text string) []string {
 			parts := numberRegex.Split(text, -1)
 			for _, part := range parts {
 				part = strings.TrimSpace(part)
-				if part != "" && len(part) > 2 {
+				if part \!= "" && len(part) > 2 {
 					items = append(items, part)
 				}
 			}
@@ -1034,7 +1090,7 @@ func splitByBullets(text string) []string {
 			for _, part := range parts {
 				part = strings.TrimSpace(part)
 				// Make sure it's not just a fragment
-				if part != "" && len(part) > 10 {
+				if part \!= "" && len(part) > 10 {
 					// Add period back if it looks like a sentence
 					if len(part) > 20 && part[0] >= 'A' && part[0] <= 'Z' {
 						part += "."
@@ -1047,7 +1103,7 @@ func splitByBullets(text string) []string {
 			parts = strings.Split(text, "; ")
 			for _, part := range parts {
 				part = strings.TrimSpace(part)
-				if part != "" && len(part) > 5 {
+				if part \!= "" && len(part) > 5 {
 					items = append(items, part)
 				}
 			}
@@ -1092,9 +1148,9 @@ func (c *Client) saveProfileToJSON(profile *models.Profile) error {
 	safeName := url.PathEscape(profile.Name)
 	if safeName == "" {
 		// Use URL or a timestamp if name is empty after escaping
-		if profile.URL != "" {
+		if profile.URL \!= "" {
 			urlObj, _ := url.Parse(profile.URL)
-			if urlObj != nil && urlObj.Query().Get("ID") != "" {
+			if urlObj \!= nil && urlObj.Query().Get("ID") \!= "" {
 				safeName = "profile-" + urlObj.Query().Get("ID")
 			}
 		}
@@ -1108,7 +1164,7 @@ func (c *Client) saveProfileToJSON(profile *models.Profile) error {
 	
 	// Marshal profile to JSON
 	data, err := json.MarshalIndent(profile, "", "  ")
-	if err != nil {
+	if err \!= nil {
 		return fmt.Errorf("failed to marshal profile: %w", err)
 	}
 
@@ -1118,7 +1174,7 @@ func (c *Client) saveProfileToJSON(profile *models.Profile) error {
 	defer fileMu.Unlock()
 
 	// Write JSON to file
-	if err := os.WriteFile(jsonPath, data, 0644); err != nil {
+	if err := os.WriteFile(jsonPath, data, 0644); err \!= nil {
 		return fmt.Errorf("failed to write profile JSON: %w", err)
 	}
 
@@ -1128,7 +1184,7 @@ func (c *Client) saveProfileToJSON(profile *models.Profile) error {
 // GetProfile retrieves a profile by name
 func (c *Client) GetProfile(name string) (*models.Profile, error) {
 	profile, exists := c.profiles[name]
-	if !exists {
+	if \!exists {
 		return nil, fmt.Errorf("profile not found: %s", name)
 	}
 	return profile, nil
@@ -1136,7 +1192,7 @@ func (c *Client) GetProfile(name string) (*models.Profile, error) {
 
 // AddProfile adds a profile to the client
 func (c *Client) AddProfile(profile *models.Profile) {
-	if profile != nil && profile.Name != "" {
+	if profile \!= nil && profile.Name \!= "" {
 		c.profiles[profile.Name] = profile
 	}
 }
@@ -1158,23 +1214,23 @@ func (c *Client) ListProfiles() []*models.Profile {
 // LoadFromDisk loads profiles from JSON files in the data directory
 func (c *Client) LoadFromDisk() error {
 	files, err := os.ReadDir(c.dataDir)
-	if err != nil {
+	if err \!= nil {
 		return fmt.Errorf("failed to read data directory: %w", err)
 	}
 
 	for _, file := range files {
-		if file.IsDir() || !strings.HasSuffix(file.Name(), ".json") {
+		if file.IsDir() || \!strings.HasSuffix(file.Name(), ".json") {
 			continue
 		}
 
 		filePath := filepath.Join(c.dataDir, file.Name())
 		data, err := os.ReadFile(filePath)
-		if err != nil {
+		if err \!= nil {
 			return fmt.Errorf("failed to read file %s: %w", filePath, err)
 		}
 
 		var profile models.Profile
-		if err := json.Unmarshal(data, &profile); err != nil {
+		if err := json.Unmarshal(data, &profile); err \!= nil {
 			return fmt.Errorf("failed to unmarshal profile from %s: %w", filePath, err)
 		}
 
